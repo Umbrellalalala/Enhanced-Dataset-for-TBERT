@@ -1,0 +1,1218 @@
+(default) U:\THE_WAY_TO_CODE\nlp\essay-and-code\Essay-Scoring-main>python train.py --oov embedding --embedding glove --embedding_dict glove.6B.50d.txt --embedding_dim 50 --datapath data/fold_ --prompt_id 1
+Loading data... - INFO - Creating vocabulary from: data/fold_0/train.tsv
+Loading data... - INFO -   438415 total words, 12005 unique words
+Loading data... - INFO - Reading dataset from: data/fold_0/train.tsv
+Loading data... - INFO -   <num> hit rate: 0.00%, <unk> hit rate: 4.01%
+Loading data... - INFO - Reading dataset from: data/fold_0/dev.tsv
+Loading data... - INFO -   <num> hit rate: 0.00%, <unk> hit rate: 4.85%
+Loading data... - INFO - Reading dataset from: data/fold_0/test.tsv
+Loading data... - INFO -   <num> hit rate: 0.00%, <unk> hit rate: 4.79%
+Loading data... - INFO - Training data max sentence num = 71, max sentence length = 50
+Loading data... - INFO - Dev data max sentence num = 50, max sentence length = 50
+Loading data... - INFO - Test data max sentence num = 53, max sentence length = 50
+Loading data... - INFO - Overall max sentence num = 71, max sentence length = 50
+Loading data... - INFO - Statistics:
+Loading data... - INFO -   train X shape: (1070, 71, 50)
+Loading data... - INFO -   dev X shape:   (356, 71, 50)
+Loading data... - INFO -   test X shape:  (357, 71, 50)
+Loading data... - INFO -   train Y shape: (1070, 1)
+Loading data... - INFO -   dev Y shape:   (356, 1)
+Loading data... - INFO -   test Y shape:  (357, 1)
+Loading data... - INFO -   train_y mean: [8.553271], stdev: [1.5372216], train_y mean after scaling: [0.65532714]
+Loading data... - INFO - Loading GloVe ...
+Loading data... - INFO - OOV number =732, OOV ratio = 0.133115
+HierAttNet(
+  (word_att_net): WordAttNet(
+    (lookup): Embedding(5500, 50)
+    (conv1): Conv1d(50, 100, kernel_size=(5,), stride=(1,))
+    (dropout): Dropout(p=0.5, inplace=False)
+    (fc1): Linear(in_features=100, out_features=100, bias=True)
+    (fc2): Linear(in_features=100, out_features=1, bias=False)
+  )
+  (sent_att_net): SentAttNet(
+    (LSTM): LSTM(100, 100)
+    (fc): Linear(in_features=100, out_features=1, bias=True)
+    (fc1): Linear(in_features=100, out_features=100, bias=True)
+    (fc2): Linear(in_features=100, out_features=1, bias=False)
+  )
+)
+begin train
+loss: tensor(0.0078, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 1/50, Iteration: 107/107, loss : 22815.140625, quadratic_weighted_kappa: 0.7077451800671146, pearson: [0.76415294], spearman: 0.9944283347141674
+test  Epoch: 1/50, Iteration: 107/107, loss: 22699.1640625, quadratic_weighted_kappa: 0.6732637388674406, pearson: 0.9983863578699951, spearman: [0.73971546]
+best result Epoch : 1,quadratic_weighted_kappa: 0.6732637388674406, pearson: [0.73971546], spearman: 0.9983863578699951
+begin train
+loss: tensor(0.0057, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 2/50, Iteration: 107/107, loss : 22706.96875, quadratic_weighted_kappa: 0.7443650062188498, pearson: [0.7929341], spearman: 0.9952440352624671
+test  Epoch: 2/50, Iteration: 107/107, loss: 22600.62890625, quadratic_weighted_kappa: 0.7176775366435633, pearson: 0.9987094423482782, spearman: [0.77324957]
+best result Epoch : 2,quadratic_weighted_kappa: 0.7176775366435633, pearson: [0.77324957], spearman: 0.9987094423482782
+begin train
+loss: tensor(0.0163, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 3/50, Iteration: 107/107, loss : 22941.6875, quadratic_weighted_kappa: 0.7423970350691627, pearson: [0.8068261], spearman: 0.9949694864494302
+test  Epoch: 3/50, Iteration: 107/107, loss: 22836.517578125, quadratic_weighted_kappa: 0.706768441389795, pearson: 0.9974846224975459, spearman: [0.78001255]
+begin train
+loss: tensor(0.0142, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 4/50, Iteration: 107/107, loss : 22612.25390625, quadratic_weighted_kappa: 0.7889342960594574, pearson: [0.8352472], spearman: 0.9957324581992949
+test  Epoch: 4/50, Iteration: 107/107, loss: 22505.1171875, quadratic_weighted_kappa: 0.7359236304427754, pearson: 0.9987413551824597, spearman: [0.79094476]
+best result Epoch : 4,quadratic_weighted_kappa: 0.7359236304427754, pearson: [0.79094476], spearman: 0.9987413551824597
+begin train
+loss: tensor(0.0053, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 5/50, Iteration: 107/107, loss : 22675.20703125, quadratic_weighted_kappa: 0.8022035541749972, pearson: [0.8400141], spearman: 0.9959291106852616
+test  Epoch: 5/50, Iteration: 107/107, loss: 22566.697265625, quadratic_weighted_kappa: 0.7527025521007468, pearson: 0.9936456865716596, spearman: [0.7971609]
+best result Epoch : 5,quadratic_weighted_kappa: 0.7527025521007468, pearson: [0.7971609], spearman: 0.9936456865716596
+begin train
+loss: tensor(0.0090, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 6/50, Iteration: 107/107, loss : 22921.568359375, quadratic_weighted_kappa: 0.792944343725928, pearson: [0.8353867], spearman: 0.9980562156813984
+test  Epoch: 6/50, Iteration: 107/107, loss: 22817.08984375, quadratic_weighted_kappa: 0.7633882177676593, pearson: 0.9981572316328452, spearman: [0.8179066]
+begin train
+loss: tensor(0.0139, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 7/50, Iteration: 107/107, loss : 22570.4921875, quadratic_weighted_kappa: 0.8013602460779301, pearson: [0.83930016], spearman: 0.9961573805024463
+test  Epoch: 7/50, Iteration: 107/107, loss: 22465.18359375, quadratic_weighted_kappa: 0.7603229806151148, pearson: 0.9986662215573568, spearman: [0.80005187]
+begin train
+loss: tensor(0.0053, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 8/50, Iteration: 107/107, loss : 22634.654296875, quadratic_weighted_kappa: 0.7425702066117669, pearson: [0.834939], spearman: 0.9946595634614029
+test  Epoch: 8/50, Iteration: 107/107, loss: 22523.32421875, quadratic_weighted_kappa: 0.6773911421324103, pearson: 0.9937853711568112, spearman: [0.7860461]
+begin train
+loss: tensor(0.0041, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 9/50, Iteration: 107/107, loss : 22650.109375, quadratic_weighted_kappa: 0.8181537666063431, pearson: [0.84889996], spearman: 0.9993078098465213
+test  Epoch: 9/50, Iteration: 107/107, loss: 22541.826171875, quadratic_weighted_kappa: 0.7797093431495628, pearson: 0.996821705896595, spearman: [0.8182914]
+best result Epoch : 9,quadratic_weighted_kappa: 0.7797093431495628, pearson: [0.8182914], spearman: 0.996821705896595
+begin train
+loss: tensor(0.0056, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 10/50, Iteration: 107/107, loss : 22767.173828125, quadratic_weighted_kappa: 0.8131982135346778, pearson: [0.8330401], spearman: 0.996010630870484
+test  Epoch: 10/50, Iteration: 107/107, loss: 22661.798828125, quadratic_weighted_kappa: 0.7972420868779274, pearson: 0.998917436223124, spearman: [0.8218162]
+begin train
+loss: tensor(0.0093, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 11/50, Iteration: 107/107, loss : 22795.8984375, quadratic_weighted_kappa: 0.8245285707134302, pearson: [0.8411737], spearman: 0.9982363779504522
+test  Epoch: 11/50, Iteration: 107/107, loss: 22690.697265625, quadratic_weighted_kappa: 0.8058280564543343, pearson: 0.9962460880403885, spearman: [0.8280359]
+best result Epoch : 11,quadratic_weighted_kappa: 0.8058280564543343, pearson: [0.8280359], spearman: 0.9962460880403885
+begin train
+loss: tensor(0.0079, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 12/50, Iteration: 107/107, loss : 22682.7109375, quadratic_weighted_kappa: 0.829535719763427, pearson: [0.8360236], spearman: 0.9958803049626244
+test  Epoch: 12/50, Iteration: 107/107, loss: 22576.806640625, quadratic_weighted_kappa: 0.8061934343081827, pearson: 0.9977695632267093, spearman: [0.8184423]
+best result Epoch : 12,quadratic_weighted_kappa: 0.8061934343081827, pearson: [0.8184423], spearman: 0.9977695632267093
+begin train
+loss: tensor(0.0056, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 13/50, Iteration: 107/107, loss : 22716.486328125, quadratic_weighted_kappa: 0.8157388353445505, pearson: [0.84309894], spearman: 0.994964399749455
+test  Epoch: 13/50, Iteration: 107/107, loss: 22607.873046875, quadratic_weighted_kappa: 0.7978167922778673, pearson: 0.9976386151095928, spearman: [0.8243906]
+begin train
+loss: tensor(0.0020, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 14/50, Iteration: 107/107, loss : 22613.052734375, quadratic_weighted_kappa: 0.821131303130276, pearson: [0.836095], spearman: 0.9947860992790849
+test  Epoch: 14/50, Iteration: 107/107, loss: 22514.044921875, quadratic_weighted_kappa: 0.8132981607453922, pearson: 0.9969416757350106, spearman: [0.8294688]
+begin train
+loss: tensor(0.0078, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 15/50, Iteration: 107/107, loss : 22696.87109375, quadratic_weighted_kappa: 0.8171227764125703, pearson: [0.8464007], spearman: 0.9970112479237621
+test  Epoch: 15/50, Iteration: 107/107, loss: 22591.13671875, quadratic_weighted_kappa: 0.8016095171448566, pearson: 0.9942902401058346, spearman: [0.8268442]
+begin train
+loss: tensor(0.0056, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 16/50, Iteration: 107/107, loss : 22947.310546875, quadratic_weighted_kappa: 0.7899758555264625, pearson: [0.8388222], spearman: 0.998683608591403
+test  Epoch: 16/50, Iteration: 107/107, loss: 22847.587890625, quadratic_weighted_kappa: 0.7671664306792467, pearson: 0.9953744522729059, spearman: [0.8193622]
+begin train
+loss: tensor(0.0089, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 17/50, Iteration: 107/107, loss : 22955.93359375, quadratic_weighted_kappa: 0.8013469549622902, pearson: [0.8480717], spearman: 0.9977194960908877
+test  Epoch: 17/50, Iteration: 107/107, loss: 22857.3828125, quadratic_weighted_kappa: 0.768422418266736, pearson: 0.9973139481767223, spearman: [0.8204191]
+begin train
+loss: tensor(0.0037, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 18/50, Iteration: 107/107, loss : 22788.685546875, quadratic_weighted_kappa: 0.8221199191556254, pearson: [0.83554083], spearman: 0.9970364486988021
+test  Epoch: 18/50, Iteration: 107/107, loss: 22692.197265625, quadratic_weighted_kappa: 0.7950104496743297, pearson: 0.9955127192424895, spearman: [0.812845]
+begin train
+loss: tensor(0.0062, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 19/50, Iteration: 107/107, loss : 22537.900390625, quadratic_weighted_kappa: 0.8127369692929461, pearson: [0.83295614], spearman: 0.9942883673488385
+test  Epoch: 19/50, Iteration: 107/107, loss: 22438.990234375, quadratic_weighted_kappa: 0.814166656159772, pearson: 0.992387832981413, spearman: [0.83284384]
+begin train
+loss: tensor(0.0058, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 20/50, Iteration: 107/107, loss : 22526.01171875, quadratic_weighted_kappa: 0.8140054523497893, pearson: [0.8443173], spearman: 0.9970745823254131
+test  Epoch: 20/50, Iteration: 107/107, loss: 22431.146484375, quadratic_weighted_kappa: 0.8034461940363682, pearson: 0.9977191554545364, spearman: [0.8315253]
+begin train
+loss: tensor(0.0042, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 21/50, Iteration: 107/107, loss : 22706.990234375, quadratic_weighted_kappa: 0.8335616438356164, pearson: [0.8437449], spearman: 0.9969808607095315
+test  Epoch: 21/50, Iteration: 107/107, loss: 22611.83203125, quadratic_weighted_kappa: 0.8065864324136063, pearson: 0.9969614893851584, spearman: [0.8181965]
+best result Epoch : 21,quadratic_weighted_kappa: 0.8065864324136063, pearson: [0.8181965], spearman: 0.9969614893851584
+begin train
+loss: tensor(0.0058, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 22/50, Iteration: 107/107, loss : 22768.37890625, quadratic_weighted_kappa: 0.8351321135637556, pearson: [0.84206814], spearman: 0.9956272000808553
+test  Epoch: 22/50, Iteration: 107/107, loss: 22673.62109375, quadratic_weighted_kappa: 0.8106941253013317, pearson: 0.9990757476174827, spearman: [0.82158774]
+best result Epoch : 22,quadratic_weighted_kappa: 0.8106941253013317, pearson: [0.82158774], spearman: 0.9990757476174827
+begin train
+loss: tensor(0.0048, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 23/50, Iteration: 107/107, loss : 22774.142578125, quadratic_weighted_kappa: 0.8162324150176352, pearson: [0.83634585], spearman: 0.9936468447166807
+test  Epoch: 23/50, Iteration: 107/107, loss: 22671.998046875, quadratic_weighted_kappa: 0.7905473501303215, pearson: 0.9980090083864819, spearman: [0.8153632]
+begin train
+loss: tensor(0.0041, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 24/50, Iteration: 107/107, loss : 22634.015625, quadratic_weighted_kappa: 0.8354195368849138, pearson: [0.84464246], spearman: 0.9943224781604365
+test  Epoch: 24/50, Iteration: 107/107, loss: 22542.236328125, quadratic_weighted_kappa: 0.7969480474439897, pearson: 0.9973710484130882, spearman: [0.8141179]
+best result Epoch : 24,quadratic_weighted_kappa: 0.7969480474439897, pearson: [0.8141179], spearman: 0.9973710484130882
+begin train
+loss: tensor(0.0069, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 25/50, Iteration: 107/107, loss : 22893.95703125, quadratic_weighted_kappa: 0.8042832423517305, pearson: [0.8323515], spearman: 0.9955373682943663
+test  Epoch: 25/50, Iteration: 107/107, loss: 22797.625, quadratic_weighted_kappa: 0.7982318288523719, pearson: 0.9944388259980409, spearman: [0.82761556]
+begin train
+loss: tensor(0.0019, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 26/50, Iteration: 107/107, loss : 22795.408203125, quadratic_weighted_kappa: 0.8277578103400607, pearson: [0.8353491], spearman: 0.9988406313625308
+test  Epoch: 26/50, Iteration: 107/107, loss: 22696.19921875, quadratic_weighted_kappa: 0.8147691998341103, pearson: 0.9965947225666991, spearman: [0.825794]
+begin train
+loss: tensor(0.0030, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 27/50, Iteration: 107/107, loss : 22872.3671875, quadratic_weighted_kappa: 0.8079737033591209, pearson: [0.8327324], spearman: 0.999287596032241
+test  Epoch: 27/50, Iteration: 107/107, loss: 22774.3515625, quadratic_weighted_kappa: 0.7880649063592102, pearson: 0.9971269547929649, spearman: [0.813449]
+begin train
+loss: tensor(0.0045, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 28/50, Iteration: 107/107, loss : 22734.26953125, quadratic_weighted_kappa: 0.8234913601096981, pearson: [0.8356904], spearman: 0.9955312842022392
+test  Epoch: 28/50, Iteration: 107/107, loss: 22635.2109375, quadratic_weighted_kappa: 0.797216499130156, pearson: 0.996686406029363, spearman: [0.81300586]
+begin train
+loss: tensor(0.0075, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 29/50, Iteration: 107/107, loss : 22986.525390625, quadratic_weighted_kappa: 0.7887058027883254, pearson: [0.84072], spearman: 0.9997064009968603
+test  Epoch: 29/50, Iteration: 107/107, loss: 22894.01171875, quadratic_weighted_kappa: 0.7444803225753578, pearson: 0.9955681381208563, spearman: [0.807367]
+begin train
+loss: tensor(0.0011, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 30/50, Iteration: 107/107, loss : 22903.51171875, quadratic_weighted_kappa: 0.8005452255165542, pearson: [0.83638144], spearman: 0.9973200737804221
+test  Epoch: 30/50, Iteration: 107/107, loss: 22807.26953125, quadratic_weighted_kappa: 0.7745922244957615, pearson: 0.9979649963682667, spearman: [0.8170992]
+begin train
+loss: tensor(0.0062, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 31/50, Iteration: 107/107, loss : 22965.587890625, quadratic_weighted_kappa: 0.7914988433689212, pearson: [0.83746123], spearman: 0.9951849564006644
+test  Epoch: 31/50, Iteration: 107/107, loss: 22877.3203125, quadratic_weighted_kappa: 0.7758232373552584, pearson: 0.9962151972081281, spearman: [0.81841093]
+begin train
+loss: tensor(0.0017, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 32/50, Iteration: 107/107, loss : 22693.1171875, quadratic_weighted_kappa: 0.8379485121436427, pearson: [0.84360397], spearman: 0.99533586183326
+test  Epoch: 32/50, Iteration: 107/107, loss: 22596.4140625, quadratic_weighted_kappa: 0.8115639991352126, pearson: 0.9930999045779884, spearman: [0.824319]
+best result Epoch : 32,quadratic_weighted_kappa: 0.8115639991352126, pearson: [0.824319], spearman: 0.9930999045779884
+begin train
+loss: tensor(0.0016, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 33/50, Iteration: 107/107, loss : 22807.326171875, quadratic_weighted_kappa: 0.8041900744623953, pearson: [0.8194221], spearman: 0.9939541744851129
+test  Epoch: 33/50, Iteration: 107/107, loss: 22718.33203125, quadratic_weighted_kappa: 0.7812800684923437, pearson: 0.9983274114366103, spearman: [0.8034334]
+begin train
+loss: tensor(0.0018, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 34/50, Iteration: 107/107, loss : 22808.1015625, quadratic_weighted_kappa: 0.7981676660380406, pearson: [0.81829983], spearman: 0.9960138225253703
+test  Epoch: 34/50, Iteration: 107/107, loss: 22707.55859375, quadratic_weighted_kappa: 0.7805245021112747, pearson: 0.9987151128105501, spearman: [0.8062668]
+begin train
+loss: tensor(0.0051, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 35/50, Iteration: 107/107, loss : 22683.99609375, quadratic_weighted_kappa: 0.8383706598132802, pearson: [0.8385926], spearman: 0.9965743901611919
+test  Epoch: 35/50, Iteration: 107/107, loss: 22595.423828125, quadratic_weighted_kappa: 0.8098416621692651, pearson: 0.9945146849148296, spearman: [0.8115162]
+best result Epoch : 35,quadratic_weighted_kappa: 0.8098416621692651, pearson: [0.8115162], spearman: 0.9945146849148296
+begin train
+loss: tensor(0.0029, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 36/50, Iteration: 107/107, loss : 22796.158203125, quadratic_weighted_kappa: 0.8089223308861377, pearson: [0.81461364], spearman: 0.9970907733246804
+test  Epoch: 36/50, Iteration: 107/107, loss: 22712.275390625, quadratic_weighted_kappa: 0.785113504203695, pearson: 0.9967101758159795, spearman: [0.7976892]
+begin train
+loss: tensor(0.0028, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 37/50, Iteration: 107/107, loss : 22763.978515625, quadratic_weighted_kappa: 0.8244569477205235, pearson: [0.8322978], spearman: 0.9951781076412207
+test  Epoch: 37/50, Iteration: 107/107, loss: 22666.708984375, quadratic_weighted_kappa: 0.804581359810846, pearson: 0.9980034368276216, spearman: [0.81659776]
+begin train
+loss: tensor(0.0037, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 38/50, Iteration: 107/107, loss : 22698.44921875, quadratic_weighted_kappa: 0.8300922377928617, pearson: [0.83045995], spearman: 0.9989182284719553
+test  Epoch: 38/50, Iteration: 107/107, loss: 22608.177734375, quadratic_weighted_kappa: 0.8006976549016458, pearson: 0.9971715931994541, spearman: [0.8050242]
+begin train
+loss: tensor(0.0043, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 39/50, Iteration: 107/107, loss : 22871.15625, quadratic_weighted_kappa: 0.8006077813761591, pearson: [0.8223519], spearman: 0.9963090173559533
+test  Epoch: 39/50, Iteration: 107/107, loss: 22787.853515625, quadratic_weighted_kappa: 0.7622239228386639, pearson: 0.9976707916862055, spearman: [0.79600704]
+begin train
+loss: tensor(0.0014, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 40/50, Iteration: 107/107, loss : 22920.765625, quadratic_weighted_kappa: 0.800148219513099, pearson: [0.8347208], spearman: 0.9995524701414036
+test  Epoch: 40/50, Iteration: 107/107, loss: 22828.076171875, quadratic_weighted_kappa: 0.7531778310795935, pearson: 0.9950951160704066, spearman: [0.8019892]
+begin train
+loss: tensor(0.0023, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 41/50, Iteration: 107/107, loss : 22896.814453125, quadratic_weighted_kappa: 0.79777899543379, pearson: [0.8246393], spearman: 0.9980814164564386
+test  Epoch: 41/50, Iteration: 107/107, loss: 22809.744140625, quadratic_weighted_kappa: 0.7668338670309247, pearson: 0.9937083583668858, spearman: [0.80247164]
+begin train
+loss: tensor(0.0025, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 42/50, Iteration: 107/107, loss : 22687.24609375, quadratic_weighted_kappa: 0.8283451472916487, pearson: [0.8368731], spearman: 0.9934202704661544
+test  Epoch: 42/50, Iteration: 107/107, loss: 22601.03515625, quadratic_weighted_kappa: 0.7952683058416841, pearson: 0.9917146304256433, spearman: [0.81263906]
+begin train
+loss: tensor(0.0010, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 43/50, Iteration: 107/107, loss : 22848.2109375, quadratic_weighted_kappa: 0.8103565340498686, pearson: [0.8280832], spearman: 0.9975013996736533
+test  Epoch: 43/50, Iteration: 107/107, loss: 22768.763671875, quadratic_weighted_kappa: 0.774230948760032, pearson: 0.9988616546989143, spearman: [0.802079]
+begin train
+loss: tensor(0.0040, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 44/50, Iteration: 107/107, loss : 22874.767578125, quadratic_weighted_kappa: 0.7899982983872493, pearson: [0.8168137], spearman: 0.9953804785088588
+test  Epoch: 44/50, Iteration: 107/107, loss: 22783.1875, quadratic_weighted_kappa: 0.7465042220775415, pearson: 0.9940413991219487, spearman: [0.7835753]
+begin train
+loss: tensor(0.0036, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 45/50, Iteration: 107/107, loss : 22827.646484375, quadratic_weighted_kappa: 0.786927905710534, pearson: [0.8162678], spearman: 0.9980691817793742
+test  Epoch: 45/50, Iteration: 107/107, loss: 22731.890625, quadratic_weighted_kappa: 0.7622227155872693, pearson: 0.9929316369068498, spearman: [0.8001861]
+begin train
+loss: tensor(0.0036, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 46/50, Iteration: 107/107, loss : 22789.26171875, quadratic_weighted_kappa: 0.8132581887970669, pearson: [0.82186157], spearman: 0.993947159493644
+test  Epoch: 46/50, Iteration: 107/107, loss: 22703.685546875, quadratic_weighted_kappa: 0.7910154422087038, pearson: 0.9937707664196807, spearman: [0.80303895]
+begin train
+loss: tensor(0.0028, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 47/50, Iteration: 107/107, loss : 22692.962890625, quadratic_weighted_kappa: 0.8198640102568535, pearson: [0.82255554], spearman: 0.9979985664150135
+test  Epoch: 47/50, Iteration: 107/107, loss: 22611.43359375, quadratic_weighted_kappa: 0.7976936721536724, pearson: 0.9987278713506619, spearman: [0.8098742]
+begin train
+loss: tensor(0.0021, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 48/50, Iteration: 107/107, loss : 22676.32421875, quadratic_weighted_kappa: 0.8247014430253774, pearson: [0.8253876], spearman: 0.9952447999297835
+test  Epoch: 48/50, Iteration: 107/107, loss: 22600.466796875, quadratic_weighted_kappa: 0.8029015136192938, pearson: 0.9951183254043567, spearman: [0.8071662]
+begin train
+loss: tensor(0.0024, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 49/50, Iteration: 107/107, loss : 22676.39453125, quadratic_weighted_kappa: 0.8149129346101651, pearson: [0.8247894], spearman: 0.9951940326692474
+test  Epoch: 49/50, Iteration: 107/107, loss: 22593.189453125, quadratic_weighted_kappa: 0.7908327217681864, pearson: 0.9970458869631589, spearman: [0.8087019]
+begin train
+loss: tensor(0.0088, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 50/50, Iteration: 107/107, loss : 22556.546875, quadratic_weighted_kappa: 0.8131128484916663, pearson: [0.8384847], spearman: 0.9967224031565467
+test  Epoch: 50/50, Iteration: 107/107, loss: 22470.033203125, quadratic_weighted_kappa: 0.7903205212570985, pearson: 0.9953971011541897, spearman: [0.81535536]
+best result Epoch : 50,quadratic_weighted_kappa: 0.8098416621692651, pearson: [0.8115162], spearman: 0.9945146849148296
+Loading data... - INFO - Creating vocabulary from: data/fold_1/train.tsv
+Loading data... - INFO -   435608 total words, 12140 unique words
+Loading data... - INFO - Reading dataset from: data/fold_1/train.tsv
+Loading data... - INFO -   <num> hit rate: 0.00%, <unk> hit rate: 4.09%
+Loading data... - INFO - Reading dataset from: data/fold_1/dev.tsv
+Loading data... - INFO -   <num> hit rate: 0.00%, <unk> hit rate: 4.83%
+Loading data... - INFO - Reading dataset from: data/fold_1/test.tsv
+Loading data... - INFO -   <num> hit rate: 0.00%, <unk> hit rate: 4.72%
+Loading data... - INFO - Training data max sentence num = 53, max sentence length = 50
+Loading data... - INFO - Dev data max sentence num = 53, max sentence length = 50
+Loading data... - INFO - Test data max sentence num = 71, max sentence length = 50
+Loading data... - INFO - Overall max sentence num = 71, max sentence length = 50
+Loading data... - INFO - Statistics:
+Loading data... - INFO -   train X shape: (1069, 71, 50)
+Loading data... - INFO -   dev X shape:   (357, 71, 50)
+Loading data... - INFO -   test X shape:  (357, 71, 50)
+Loading data... - INFO -   train Y shape: (1069, 1)
+Loading data... - INFO -   dev Y shape:   (357, 1)
+Loading data... - INFO -   test Y shape:  (357, 1)
+Loading data... - INFO -   train_y mean: [8.545369], stdev: [1.5526464], train_y mean after scaling: [0.65453696]
+Loading data... - INFO - Loading GloVe ...
+Loading data... - INFO - OOV number =704, OOV ratio = 0.129770
+HierAttNet(
+  (word_att_net): WordAttNet(
+    (lookup): Embedding(5426, 50)
+    (conv1): Conv1d(50, 100, kernel_size=(5,), stride=(1,))
+    (dropout): Dropout(p=0.5, inplace=False)
+    (fc1): Linear(in_features=100, out_features=100, bias=True)
+    (fc2): Linear(in_features=100, out_features=1, bias=False)
+  )
+  (sent_att_net): SentAttNet(
+    (LSTM): LSTM(100, 100)
+    (fc): Linear(in_features=100, out_features=1, bias=True)
+    (fc1): Linear(in_features=100, out_features=100, bias=True)
+    (fc2): Linear(in_features=100, out_features=1, bias=False)
+  )
+)
+begin train
+loss: tensor(0.0052, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 1/50, Iteration: 107/107, loss : 22691.724609375, quadratic_weighted_kappa: 0.6598613942111702, pearson: [0.724248], spearman: 0.9958100228981179
+test  Epoch: 1/50, Iteration: 107/107, loss: 22938.134765625, quadratic_weighted_kappa: 0.6252888837531778, pearson: 0.9861226644948357, spearman: [0.67400074]
+best result Epoch : 1,quadratic_weighted_kappa: 0.6252888837531778, pearson: [0.67400074], spearman: 0.9861226644948357
+begin train
+loss: tensor(0.0185, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 2/50, Iteration: 107/107, loss : 22292.181640625, quadratic_weighted_kappa: 0.620546438686925, pearson: [0.7431222], spearman: 0.9964157073914871
+test  Epoch: 2/50, Iteration: 107/107, loss: 22540.890625, quadratic_weighted_kappa: 0.5921773046746424, pearson: 0.9985450978458046, spearman: [0.7013911]
+begin train
+loss: tensor(0.0132, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 3/50, Iteration: 107/107, loss : 22857.02734375, quadratic_weighted_kappa: 0.7105444521019986, pearson: [0.7772354], spearman: 0.9958379136602228
+test  Epoch: 3/50, Iteration: 107/107, loss: 23112.212890625, quadratic_weighted_kappa: 0.6957196813328324, pearson: 0.9935783992838866, spearman: [0.75260067]
+best result Epoch : 3,quadratic_weighted_kappa: 0.6957196813328324, pearson: [0.75260067], spearman: 0.9935783992838866
+begin train
+loss: tensor(0.0041, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 4/50, Iteration: 107/107, loss : 22766.939453125, quadratic_weighted_kappa: 0.7362794273789037, pearson: [0.7970699], spearman: 0.9955960288829612
+best result Epoch : 7,quadratic_weighted_kappa: 0.7875653750870318, pearson: [0.79790837], spearman: 0.9926315309878895
+begin train
+loss: tensor(0.0040, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 8/50, Iteration: 107/107, loss : 23165.37890625, quadratic_weighted_kappa: 0.6010718084838642, pearson: [0.7835458], spearman: 0.998695431031618
+test  Epoch: 8/50, Iteration: 107/107, loss: 23433.509765625, quadratic_weighted_kappa: 0.6013799469877719, pearson: 0.9972034071302239, spearman: [0.7866776]
+begin train
+loss: tensor(0.0045, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 9/50, Iteration: 107/107, loss : 22538.29296875, quadratic_weighted_kappa: 0.7723748621463833, pearson: [0.8041931], spearman: 0.99758111925958
+test  Epoch: 9/50, Iteration: 107/107, loss: 22791.833984375, quadratic_weighted_kappa: 0.778893175571928, pearson: 0.998873358269301, spearman: [0.8041148]
+begin train
+loss: tensor(0.0073, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 10/50, Iteration: 107/107, loss : 22769.046875, quadratic_weighted_kappa: 0.764812123349732, pearson: [0.81311464], spearman: 0.9971139325104218
+test  Epoch: 10/50, Iteration: 107/107, loss: 23026.0625, quadratic_weighted_kappa: 0.7497825554589136, pearson: 0.9940302560042283, spearman: [0.7905493]
+begin train
+loss: tensor(0.0048, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 11/50, Iteration: 107/107, loss : 22628.587890625, quadratic_weighted_kappa: 0.8012646863961926, pearson: [0.8156017], spearman: 0.9980961422922066
+test  Epoch: 11/50, Iteration: 107/107, loss: 22883.59765625, quadratic_weighted_kappa: 0.793478456688185, pearson: 0.9969636982280201, spearman: [0.8020873]
+best result Epoch : 11,quadratic_weighted_kappa: 0.793478456688185, pearson: [0.8020873], spearman: 0.9969636982280201
+begin train
+loss: tensor(0.0018, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 12/50, Iteration: 107/107, loss : 22768.6171875, quadratic_weighted_kappa: 0.7793019798106269, pearson: [0.8190253], spearman: 0.9966590097843168
+test  Epoch: 12/50, Iteration: 107/107, loss: 23023.400390625, quadratic_weighted_kappa: 0.768711426330685, pearson: 0.9956159084687167, spearman: [0.79689753]
+begin train
+loss: tensor(0.0084, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 13/50, Iteration: 107/107, loss : 22655.60546875, quadratic_weighted_kappa: 0.7824822823914228, pearson: [0.8202677], spearman: 0.9977779700167054
+test  Epoch: 13/50, Iteration: 107/107, loss: 22910.763671875, quadratic_weighted_kappa: 0.7735237232126082, pearson: 0.9956170293740495, spearman: [0.801119]
+begin train
+loss: tensor(0.0022, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 14/50, Iteration: 107/107, loss : 22431.607421875, quadratic_weighted_kappa: 0.7660573757267571, pearson: [0.81132466], spearman: 0.9959050361089763
+test  Epoch: 14/50, Iteration: 107/107, loss: 22686.875, quadratic_weighted_kappa: 0.7817358779537364, pearson: 0.9976634068981305, spearman: [0.8174508]
+begin train
+loss: tensor(0.0031, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 15/50, Iteration: 107/107, loss : 22508.3671875, quadratic_weighted_kappa: 0.7305179654689689, pearson: [0.8122617], spearman: 0.9974357312443526
+test  Epoch: 15/50, Iteration: 107/107, loss: 22762.814453125, quadratic_weighted_kappa: 0.7254194890176899, pearson: 0.9954878285505402, spearman: [0.7934965]
+begin train
+loss: tensor(0.0056, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 16/50, Iteration: 107/107, loss : 22738.529296875, quadratic_weighted_kappa: 0.7771462843434054, pearson: [0.8172643], spearman: 0.9980899113772682
+test  Epoch: 16/50, Iteration: 107/107, loss: 22994.580078125, quadratic_weighted_kappa: 0.7615867503673033, pearson: 0.9968561572516773, spearman: [0.79321873]
+begin train
+loss: tensor(0.0067, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 17/50, Iteration: 107/107, loss : 22535.388671875, quadratic_weighted_kappa: 0.7846309156979401, pearson: [0.81232554], spearman: 0.9970407110179456
+test  Epoch: 17/50, Iteration: 107/107, loss: 22789.74609375, quadratic_weighted_kappa: 0.7753880920892129, pearson: 0.9927453358469746, spearman: [0.798095]
+begin train
+loss: tensor(0.0061, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 18/50, Iteration: 107/107, loss : 22843.77734375, quadratic_weighted_kappa: 0.7398276999242726, pearson: [0.8094267], spearman: 0.9909268977191027
+test  Epoch: 18/50, Iteration: 107/107, loss: 23103.833984375, quadratic_weighted_kappa: 0.7382061802129316, pearson: 0.9968285302320037, spearman: [0.8080525]
+begin train
+loss: tensor(0.0111, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 19/50, Iteration: 107/107, loss : 22797.4921875, quadratic_weighted_kappa: 0.7675261689782192, pearson: [0.8127048], spearman: 0.9968176508567146
+test  Epoch: 19/50, Iteration: 107/107, loss: 23054.2265625, quadratic_weighted_kappa: 0.7760373762093453, pearson: 0.9967021646396302, spearman: [0.811582]
+begin train
+loss: tensor(0.0027, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 20/50, Iteration: 107/107, loss : 22709.53125, quadratic_weighted_kappa: 0.7864601515179352, pearson: [0.8201518], spearman: 0.9987647952910371
+test  Epoch: 20/50, Iteration: 107/107, loss: 22970.5, quadratic_weighted_kappa: 0.7784982511636124, pearson: 0.9973075853905683, spearman: [0.80186677]
+begin train
+loss: tensor(0.0024, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 21/50, Iteration: 107/107, loss : 22455.841796875, quadratic_weighted_kappa: 0.8021980425392312, pearson: [0.82038665], spearman: 0.9947303273201817
+test  Epoch: 21/50, Iteration: 107/107, loss: 22707.13671875, quadratic_weighted_kappa: 0.798749410780079, pearson: 0.9987240800532127, spearman: [0.81660247]
+best result Epoch : 21,quadratic_weighted_kappa: 0.798749410780079, pearson: [0.81660247], spearman: 0.9987240800532127
+begin train
+loss: tensor(0.0043, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 22/50, Iteration: 107/107, loss : 22787.6484375, quadratic_weighted_kappa: 0.7785343826416891, pearson: [0.80731916], spearman: 0.9984577991010603
+test  Epoch: 22/50, Iteration: 107/107, loss: 23043.6171875, quadratic_weighted_kappa: 0.7815173510915143, pearson: 0.997427851939219, spearman: [0.8100306]
+begin train
+loss: tensor(0.0037, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 23/50, Iteration: 107/107, loss : 22536.9921875, quadratic_weighted_kappa: 0.8055507582759399, pearson: [0.81664014], spearman: 0.990119087619983
+test  Epoch: 23/50, Iteration: 107/107, loss: 22789.283203125, quadratic_weighted_kappa: 0.7781086362177599, pearson: 0.9973277287187551, spearman: [0.7907034]
+best result Epoch : 23,quadratic_weighted_kappa: 0.7781086362177599, pearson: [0.7907034], spearman: 0.9973277287187551
+begin train
+loss: tensor(0.0045, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 24/50, Iteration: 107/107, loss : 22713.646484375, quadratic_weighted_kappa: 0.7738712689252942, pearson: [0.8094222], spearman: 0.9897188255127548
+test  Epoch: 24/50, Iteration: 107/107, loss: 22973.01171875, quadratic_weighted_kappa: 0.7732485295653082, pearson: 0.9898150255645538, spearman: [0.8042662]
+begin train
+loss: tensor(0.0051, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 25/50, Iteration: 107/107, loss : 22469.037109375, quadratic_weighted_kappa: 0.7729168139091103, pearson: [0.8120039], spearman: 0.9967320664377735
+test  Epoch: 25/50, Iteration: 107/107, loss: 22727.271484375, quadratic_weighted_kappa: 0.7757121120093174, pearson: 0.991717234882152, spearman: [0.8057833]
+begin train
+loss: tensor(0.0018, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 26/50, Iteration: 107/107, loss : 22802.1171875, quadratic_weighted_kappa: 0.7459481069843683, pearson: [0.79472893], spearman: 0.9922433680646949
+test  Epoch: 26/50, Iteration: 107/107, loss: 23058.853515625, quadratic_weighted_kappa: 0.762204648121011, pearson: 0.9973254539402856, spearman: [0.800018]
+begin train
+loss: tensor(0.0037, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 27/50, Iteration: 107/107, loss : 22529.701171875, quadratic_weighted_kappa: 0.8138746782234676, pearson: [0.81474364], spearman: 0.9962357031821579
+test  Epoch: 27/50, Iteration: 107/107, loss: 22780.654296875, quadratic_weighted_kappa: 0.7950447513484677, pearson: 0.9984301720813867, spearman: [0.79659235]
+best result Epoch : 27,quadratic_weighted_kappa: 0.7950447513484677, pearson: [0.79659235], spearman: 0.9984301720813867
+begin train
+loss: tensor(0.0083, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 28/50, Iteration: 107/107, loss : 22591.42578125, quadratic_weighted_kappa: 0.7237158439917022, pearson: [0.78486586], spearman: 0.9977681126433374
+test  Epoch: 28/50, Iteration: 107/107, loss: 22855.109375, quadratic_weighted_kappa: 0.7540254837187352, pearson: 0.9981764848303266, spearman: [0.80182683]
+begin train
+loss: tensor(0.0033, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 29/50, Iteration: 107/107, loss : 22745.35546875, quadratic_weighted_kappa: 0.7691104914153538, pearson: [0.79634273], spearman: 0.9974426544831729
+test  Epoch: 29/50, Iteration: 107/107, loss: 23005.9453125, quadratic_weighted_kappa: 0.7788247009680767, pearson: 0.9955818197594775, spearman: [0.79652506]
+begin train
+loss: tensor(0.0027, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 30/50, Iteration: 107/107, loss : 22498.125, quadratic_weighted_kappa: 0.796053817787048, pearson: [0.81425583], spearman: 0.9940221459244674
+test  Epoch: 30/50, Iteration: 107/107, loss: 22751.775390625, quadratic_weighted_kappa: 0.7927802639946274, pearson: 0.9949324199581282, spearman: [0.8053475]
+begin train
+loss: tensor(0.0070, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 31/50, Iteration: 107/107, loss : 22900.3125, quadratic_weighted_kappa: 0.7484046488821559, pearson: [0.8068396], spearman: 0.9954838394462675
+test  Epoch: 31/50, Iteration: 107/107, loss: 23164.71484375, quadratic_weighted_kappa: 0.7459536969165165, pearson: 0.9953680235511442, spearman: [0.8058498]
+begin train
+loss: tensor(0.0025, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 32/50, Iteration: 107/107, loss : 22507.16015625, quadratic_weighted_kappa: 0.8058592224887055, pearson: [0.81196856], spearman: 0.995869892430012
+test  Epoch: 32/50, Iteration: 107/107, loss: 22762.76953125, quadratic_weighted_kappa: 0.806260284466377, pearson: 0.9968478493650929, spearman: [0.80842614]
+begin train
+loss: tensor(0.0084, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 33/50, Iteration: 107/107, loss : 22742.970703125, quadratic_weighted_kappa: 0.8029535074936704, pearson: [0.8176279], spearman: 0.9967658914045814
+test  Epoch: 33/50, Iteration: 107/107, loss: 22992.580078125, quadratic_weighted_kappa: 0.8025527003864668, pearson: 0.9940525422396691, spearman: [0.8152182]
+begin train
+loss: tensor(0.0035, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 34/50, Iteration: 107/107, loss : 22428.505859375, quadratic_weighted_kappa: 0.7964794976054613, pearson: [0.8172785], spearman: 0.9918371387849597
+test  Epoch: 34/50, Iteration: 107/107, loss: 22687.232421875, quadratic_weighted_kappa: 0.7916631929970821, pearson: 0.9965545018459333, spearman: [0.80596626]
+begin train
+loss: tensor(0.0023, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 35/50, Iteration: 107/107, loss : 22533.50390625, quadratic_weighted_kappa: 0.7992469946820395, pearson: [0.80873674], spearman: 0.9930033418803463
+test  Epoch: 35/50, Iteration: 107/107, loss: 22783.1953125, quadratic_weighted_kappa: 0.7987942815830594, pearson: 0.9945953900987926, spearman: [0.80558836]
+begin train
+loss: tensor(0.0048, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 36/50, Iteration: 107/107, loss : 22472.369140625, quadratic_weighted_kappa: 0.8034787546003136, pearson: [0.81328404], spearman: 0.9968580693843039
+test  Epoch: 36/50, Iteration: 107/107, loss: 22724.9296875, quadratic_weighted_kappa: 0.7914972115583223, pearson: 0.9939142752700855, spearman: [0.7990302]
+begin train
+loss: tensor(0.0018, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 37/50, Iteration: 107/107, loss : 22810.587890625, quadratic_weighted_kappa: 0.7427913385826772, pearson: [0.7903314], spearman: 0.9978775327845029
+test  Epoch: 37/50, Iteration: 107/107, loss: 23071.455078125, quadratic_weighted_kappa: 0.7570020419996472, pearson: 0.9960907107805774, spearman: [0.7926454]
+begin train
+loss: tensor(0.0012, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 38/50, Iteration: 107/107, loss : 22592.265625, quadratic_weighted_kappa: 0.8017678360008356, pearson: [0.8092615], spearman: 0.994594203257852
+test  Epoch: 38/50, Iteration: 107/107, loss: 22850.552734375, quadratic_weighted_kappa: 0.8039853583834461, pearson: 0.9960858645134031, spearman: [0.80543816]
+begin train
+loss: tensor(0.0016, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 39/50, Iteration: 107/107, loss : 22639.408203125, quadratic_weighted_kappa: 0.8048737864799644, pearson: [0.81188333], spearman: 0.9982132768994861
+test  Epoch: 39/50, Iteration: 107/107, loss: 22893.783203125, quadratic_weighted_kappa: 0.8092410097478684, pearson: 0.9980525918232461, spearman: [0.81378293]
+begin train
+loss: tensor(0.0024, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 40/50, Iteration: 107/107, loss : 22595.251953125, quadratic_weighted_kappa: 0.7707917890909236, pearson: [0.78796875], spearman: 0.9936534669733815
+test  Epoch: 40/50, Iteration: 107/107, loss: 22854.484375, quadratic_weighted_kappa: 0.7911803614819038, pearson: 0.9964135644842332, spearman: [0.8058914]
+begin train
+loss: tensor(0.0037, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 41/50, Iteration: 107/107, loss : 22683.619140625, quadratic_weighted_kappa: 0.7861181007156628, pearson: [0.79509896], spearman: 0.9963358923382296
+test  Epoch: 41/50, Iteration: 107/107, loss: 22935.8203125, quadratic_weighted_kappa: 0.805920301915359, pearson: 0.9989309200549217, spearman: [0.8130052]
+begin train
+loss: tensor(0.0042, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 42/50, Iteration: 107/107, loss : 22655.93359375, quadratic_weighted_kappa: 0.7876826385904596, pearson: [0.7999969], spearman: 0.9957840772364435
+test  Epoch: 42/50, Iteration: 107/107, loss: 22913.119140625, quadratic_weighted_kappa: 0.7957404891437919, pearson: 0.9974784904860193, spearman: [0.80476964]
+begin train
+loss: tensor(0.0018, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 43/50, Iteration: 107/107, loss : 22590.15625, quadratic_weighted_kappa: 0.77214484229576, pearson: [0.7918031], spearman: 0.998242222631316
+test  Epoch: 43/50, Iteration: 107/107, loss: 22847.7890625, quadratic_weighted_kappa: 0.771872392731812, pearson: 0.9923908330515685, spearman: [0.7886545]
+begin train
+loss: tensor(0.0019, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 44/50, Iteration: 107/107, loss : 22493.75390625, quadratic_weighted_kappa: 0.7889153496427799, pearson: [0.8004224], spearman: 0.9895779211188587
+test  Epoch: 44/50, Iteration: 107/107, loss: 22749.75, quadratic_weighted_kappa: 0.795713120946689, pearson: 0.9957779452249169, spearman: [0.8029929]
+begin train
+loss: tensor(0.0005, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 45/50, Iteration: 107/107, loss : 22732.93359375, quadratic_weighted_kappa: 0.7791319326261473, pearson: [0.7983213], spearman: 0.9968917295120924
+test  Epoch: 45/50, Iteration: 107/107, loss: 22989.96484375, quadratic_weighted_kappa: 0.7750047701555939, pearson: 0.9972530896107109, spearman: [0.7912828]
+begin train
+loss: tensor(0.0022, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 46/50, Iteration: 107/107, loss : 22578.052734375, quadratic_weighted_kappa: 0.7856784606966987, pearson: [0.79432434], spearman: 0.9959569933679329
+test  Epoch: 46/50, Iteration: 107/107, loss: 22835.5, quadratic_weighted_kappa: 0.790305476822158, pearson: 0.9981498798125741, spearman: [0.796108]
+begin train
+loss: tensor(0.0021, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 47/50, Iteration: 107/107, loss : 22522.7734375, quadratic_weighted_kappa: 0.7646889936674565, pearson: [0.7923241], spearman: 0.9921671465020633
+test  Epoch: 47/50, Iteration: 107/107, loss: 22783.76953125, quadratic_weighted_kappa: 0.7624473040314894, pearson: 0.9961585255532129, spearman: [0.7797157]
+begin train
+loss: tensor(0.0022, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 48/50, Iteration: 107/107, loss : 22440.369140625, quadratic_weighted_kappa: 0.7580659418368247, pearson: [0.79629683], spearman: 0.9942342937426053
+test  Epoch: 48/50, Iteration: 107/107, loss: 22698.6640625, quadratic_weighted_kappa: 0.7748403924169612, pearson: 0.9889531152992237, spearman: [0.8072688]
+begin train
+loss: tensor(0.0016, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 49/50, Iteration: 107/107, loss : 22761.232421875, quadratic_weighted_kappa: 0.7636709851520426, pearson: [0.7945671], spearman: 0.9960799962443078
+test  Epoch: 49/50, Iteration: 107/107, loss: 23022.078125, quadratic_weighted_kappa: 0.7768745655657429, pearson: 0.9903299167259647, spearman: [0.8014113]
+begin train
+loss: tensor(0.0038, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 50/50, Iteration: 107/107, loss : 22768.67578125, quadratic_weighted_kappa: 0.7615304338397735, pearson: [0.79077953], spearman: 0.9948079005627736
+test  Epoch: 50/50, Iteration: 107/107, loss: 23031.80859375, quadratic_weighted_kappa: 0.7583722476311003, pearson: 0.9976320874844194, spearman: [0.78796405]
+best result Epoch : 50,quadratic_weighted_kappa: 0.7950447513484677, pearson: [0.79659235], spearman: 0.9984301720813867
+Loading data... - INFO - Creating vocabulary from: data/fold_2/train.tsv
+Loading data... - INFO -   430676 total words, 12040 unique words
+Loading data... - INFO - Reading dataset from: data/fold_2/train.tsv
+Loading data... - INFO -   <num> hit rate: 0.00%, <unk> hit rate: 5.38%
+Loading data... - INFO - Reading dataset from: data/fold_2/dev.tsv
+Loading data... - INFO -   <num> hit rate: 0.00%, <unk> hit rate: 5.98%
+Loading data... - INFO - Reading dataset from: data/fold_2/test.tsv
+Loading data... - INFO -   <num> hit rate: 0.00%, <unk> hit rate: 6.13%
+Loading data... - INFO - Training data max sentence num = 53, max sentence length = 50
+Loading data... - INFO - Dev data max sentence num = 71, max sentence length = 50
+Loading data... - INFO - Test data max sentence num = 53, max sentence length = 50
+Loading data... - INFO - Overall max sentence num = 71, max sentence length = 50
+Loading data... - INFO - Statistics:
+Loading data... - INFO -   train X shape: (1069, 71, 50)
+Loading data... - INFO -   dev X shape:   (357, 71, 50)
+Loading data... - INFO -   test X shape:  (357, 71, 50)
+Loading data... - INFO -   train Y shape: (1069, 1)
+Loading data... - INFO -   dev Y shape:   (357, 1)
+Loading data... - INFO -   test Y shape:  (357, 1)
+Loading data... - INFO -   train_y mean: [8.520112], stdev: [1.5398717], train_y mean after scaling: [0.6520112]
+Loading data... - INFO - Loading GloVe ...
+Loading data... - INFO - OOV number =703, OOV ratio = 0.129825
+HierAttNet(
+  (word_att_net): WordAttNet(
+    (lookup): Embedding(5416, 50)
+    (conv1): Conv1d(50, 100, kernel_size=(5,), stride=(1,))
+    (dropout): Dropout(p=0.5, inplace=False)
+    (fc1): Linear(in_features=100, out_features=100, bias=True)
+    (fc2): Linear(in_features=100, out_features=1, bias=False)
+  )
+  (sent_att_net): SentAttNet(
+    (LSTM): LSTM(100, 100)
+    (fc): Linear(in_features=100, out_features=1, bias=True)
+    (fc1): Linear(in_features=100, out_features=100, bias=True)
+    (fc2): Linear(in_features=100, out_features=1, bias=False)
+  )
+)
+begin train
+loss: tensor(0.0100, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 1/50, Iteration: 107/107, loss : 23114.224609375, quadratic_weighted_kappa: 0.5971272346333032, pearson: [0.6524284], spearman: 0.9946430945110453
+test  Epoch: 1/50, Iteration: 107/107, loss: 23294.240234375, quadratic_weighted_kappa: 0.6960982434323022, pearson: 0.992884031398009, spearman: [0.75894094]
+best result Epoch : 1,quadratic_weighted_kappa: 0.6960982434323022, pearson: [0.75894094], spearman: 0.992884031398009
+begin train
+loss: tensor(0.0134, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 2/50, Iteration: 107/107, loss : 22612.16015625, quadratic_weighted_kappa: 0.6299086991200256, pearson: [0.7076397], spearman: 0.9921403107096834
+test  Epoch: 2/50, Iteration: 107/107, loss: 22784.9140625, quadratic_weighted_kappa: 0.7263934036311742, pearson: 0.9934858586583212, spearman: [0.7848444]
+best result Epoch : 2,quadratic_weighted_kappa: 0.7263934036311742, pearson: [0.7848444], spearman: 0.9934858586583212
+begin train
+loss: tensor(0.0065, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 3/50, Iteration: 107/107, loss : 22758.650390625, quadratic_weighted_kappa: 0.7173357639032744, pearson: [0.7676315], spearman: 0.9953756720816505
+test  Epoch: 3/50, Iteration: 107/107, loss: 22914.1328125, quadratic_weighted_kappa: 0.7573866364072797, pearson: 0.9977640576034569, spearman: [0.8114951]
+best result Epoch : 3,quadratic_weighted_kappa: 0.7573866364072797, pearson: [0.8114951], spearman: 0.9977640576034569
+begin train
+loss: tensor(0.0095, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 4/50, Iteration: 107/107, loss : 22677.712890625, quadratic_weighted_kappa: 0.7314265332603576, pearson: [0.7657348], spearman: 0.9968254971940442
+test  Epoch: 4/50, Iteration: 107/107, loss: 22832.373046875, quadratic_weighted_kappa: 0.7687644451180237, pearson: 0.9973779386841046, spearman: [0.80385005]
+best result Epoch : 4,quadratic_weighted_kappa: 0.7687644451180237, pearson: [0.80385005], spearman: 0.9973779386841046
+begin train
+loss: tensor(0.0110, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 5/50, Iteration: 107/107, loss : 22602.4609375, quadratic_weighted_kappa: 0.7223249336221922, pearson: [0.7783295], spearman: 0.9984413811347149
+test  Epoch: 5/50, Iteration: 107/107, loss: 22759.68359375, quadratic_weighted_kappa: 0.7468855746334128, pearson: 0.9947930980188197, spearman: [0.80096227]
+begin train
+loss: tensor(0.0129, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 6/50, Iteration: 107/107, loss : 22768.09765625, quadratic_weighted_kappa: 0.7424110899213413, pearson: [0.77817774], spearman: 0.9950873356686847
+test  Epoch: 6/50, Iteration: 107/107, loss: 22929.001953125, quadratic_weighted_kappa: 0.7883875964703604, pearson: 0.9938084156517418, spearman: [0.8208584]
+best result Epoch : 6,quadratic_weighted_kappa: 0.7883875964703604, pearson: [0.8208584], spearman: 0.9938084156517418
+begin train
+loss: tensor(0.0101, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 7/50, Iteration: 107/107, loss : 23077.384765625, quadratic_weighted_kappa: 0.736965156722715, pearson: [0.7891739], spearman: 0.9912713783021212
+test  Epoch: 7/50, Iteration: 107/107, loss: 23224.02734375, quadratic_weighted_kappa: 0.7696131094916965, pearson: 0.999212399164675, spearman: [0.80923337]
+begin train
+loss: tensor(0.0038, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 8/50, Iteration: 107/107, loss : 23114.078125, quadratic_weighted_kappa: 0.7317145108179633, pearson: [0.7946921], spearman: 0.9933447564576016
+test  Epoch: 8/50, Iteration: 107/107, loss: 23261.4140625, quadratic_weighted_kappa: 0.7624090006618133, pearson: 0.996426685670188, spearman: [0.8139364]
+begin train
+loss: tensor(0.0038, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 9/50, Iteration: 107/107, loss : 22949.056640625, quadratic_weighted_kappa: 0.7750573833205815, pearson: [0.79095346], spearman: 0.9983562582650284
+test  Epoch: 9/50, Iteration: 107/107, loss: 23104.513671875, quadratic_weighted_kappa: 0.8031408629441623, pearson: 0.9935979162237991, spearman: [0.8234514]
+best result Epoch : 9,quadratic_weighted_kappa: 0.8031408629441623, pearson: [0.8234514], spearman: 0.9935979162237991
+begin train
+loss: tensor(0.0032, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 10/50, Iteration: 107/107, loss : 23122.52734375, quadratic_weighted_kappa: 0.7237453819453612, pearson: [0.79441833], spearman: 0.9969516979473981
+test  Epoch: 10/50, Iteration: 107/107, loss: 23271.0625, quadratic_weighted_kappa: 0.763708637165346, pearson: 0.9920405501350625, spearman: [0.82389843]
+begin train
+loss: tensor(0.0038, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 11/50, Iteration: 107/107, loss : 23178.8671875, quadratic_weighted_kappa: 0.6966864910790145, pearson: [0.7895926], spearman: 0.993768887254858
+test  Epoch: 11/50, Iteration: 107/107, loss: 23333.001953125, quadratic_weighted_kappa: 0.7413273672569185, pearson: 0.9927450061689355, spearman: [0.8247639]
+begin train
+loss: tensor(0.0071, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 12/50, Iteration: 107/107, loss : 22762.115234375, quadratic_weighted_kappa: 0.7907116404764287, pearson: [0.8103678], spearman: 0.9971382627497047
+test  Epoch: 12/50, Iteration: 107/107, loss: 22918.431640625, quadratic_weighted_kappa: 0.8008758507887933, pearson: 0.9953051539490946, spearman: [0.82454246]
+best result Epoch : 12,quadratic_weighted_kappa: 0.8008758507887933, pearson: [0.82454246], spearman: 0.9953051539490946
+begin train
+loss: tensor(0.0047, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 13/50, Iteration: 107/107, loss : 23063.66796875, quadratic_weighted_kappa: 0.7493651266517645, pearson: [0.8014299], spearman: 0.9952783181567147
+test  Epoch: 13/50, Iteration: 107/107, loss: 23220.59375, quadratic_weighted_kappa: 0.7777702363337721, pearson: 0.9938087782975848, spearman: [0.8293386]
+begin train
+loss: tensor(0.0067, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 14/50, Iteration: 107/107, loss : 22701.720703125, quadratic_weighted_kappa: 0.7864250446793687, pearson: [0.8039159], spearman: 0.9957589887376707
+test  Epoch: 14/50, Iteration: 107/107, loss: 22846.349609375, quadratic_weighted_kappa: 0.8116837920417144, pearson: 0.9915597476828909, spearman: [0.8317062]
+begin train
+loss: tensor(0.0024, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 15/50, Iteration: 107/107, loss : 22935.0234375, quadratic_weighted_kappa: 0.7633861895833995, pearson: [0.8005301], spearman: 0.9960098407575949
+test  Epoch: 15/50, Iteration: 107/107, loss: 23101.94140625, quadratic_weighted_kappa: 0.7839888980441475, pearson: 0.9960584682683569, spearman: [0.82798535]
+begin train
+loss: tensor(0.0007, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 16/50, Iteration: 107/107, loss : 22949.548828125, quadratic_weighted_kappa: 0.7884498294557858, pearson: [0.80497396], spearman: 0.9984908658083784
+test  Epoch: 16/50, Iteration: 107/107, loss: 23110.92578125, quadratic_weighted_kappa: 0.806311848087724, pearson: 0.9987195964318814, spearman: [0.8313661]
+begin train
+loss: tensor(0.0064, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 17/50, Iteration: 107/107, loss : 22958.404296875, quadratic_weighted_kappa: 0.776076736973925, pearson: [0.8082147], spearman: 0.9992559166658315
+test  Epoch: 17/50, Iteration: 107/107, loss: 23125.33984375, quadratic_weighted_kappa: 0.7912362637362638, pearson: 0.99624061538494, spearman: [0.8260347]
+begin train
+loss: tensor(0.0054, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 18/50, Iteration: 107/107, loss : 23043.6484375, quadratic_weighted_kappa: 0.7754226073347833, pearson: [0.81066376], spearman: 0.9940597621887246
+test  Epoch: 18/50, Iteration: 107/107, loss: 23198.0234375, quadratic_weighted_kappa: 0.7974654727576262, pearson: 0.9970277546710103, spearman: [0.83096135]
+begin train
+loss: tensor(0.0055, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 19/50, Iteration: 107/107, loss : 22949.0234375, quadratic_weighted_kappa: 0.7865313494452567, pearson: [0.8051886], spearman: 0.9961452065604347
+test  Epoch: 19/50, Iteration: 107/107, loss: 23105.15234375, quadratic_weighted_kappa: 0.7994952848983929, pearson: 0.9930153751287722, spearman: [0.822762]
+begin train
+loss: tensor(0.0067, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 20/50, Iteration: 107/107, loss : 22992.8125, quadratic_weighted_kappa: 0.7903071465247631, pearson: [0.8124308], spearman: 0.9922576431237865
+test  Epoch: 20/50, Iteration: 107/107, loss: 23149.880859375, quadratic_weighted_kappa: 0.8082294106475914, pearson: 0.9978129158888462, spearman: [0.82875174]
+begin train
+loss: tensor(0.0071, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 21/50, Iteration: 107/107, loss : 23139.92578125, quadratic_weighted_kappa: 0.7328963472900494, pearson: [0.8123285], spearman: 0.9954901692646175
+test  Epoch: 21/50, Iteration: 107/107, loss: 23307.564453125, quadratic_weighted_kappa: 0.7494139616194524, pearson: 0.9946886889838479, spearman: [0.8320719]
+begin train
+loss: tensor(0.0074, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 22/50, Iteration: 107/107, loss : 22929.7421875, quadratic_weighted_kappa: 0.8116694103561808, pearson: [0.8183502], spearman: 0.9981314508101904
+test  Epoch: 22/50, Iteration: 107/107, loss: 23082.640625, quadratic_weighted_kappa: 0.8307122344194835, pearson: 0.996882663366018, spearman: [0.8409159]
+best result Epoch : 22,quadratic_weighted_kappa: 0.8307122344194835, pearson: [0.8409159], spearman: 0.996882663366018
+begin train
+loss: tensor(0.0031, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 23/50, Iteration: 107/107, loss : 23006.57421875, quadratic_weighted_kappa: 0.773091144057149, pearson: [0.8127343], spearman: 0.9959052998514075
+test  Epoch: 23/50, Iteration: 107/107, loss: 23174.494140625, quadratic_weighted_kappa: 0.7759368673304963, pearson: 0.9905408447353582, spearman: [0.8188969]
+begin train
+loss: tensor(0.0015, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 24/50, Iteration: 107/107, loss : 22913.033203125, quadratic_weighted_kappa: 0.8100859016381454, pearson: [0.81300837], spearman: 0.9915743524200215
+test  Epoch: 24/50, Iteration: 107/107, loss: 23070.119140625, quadratic_weighted_kappa: 0.825663296959965, pearson: 0.9911276386770891, spearman: [0.83157057]
+begin train
+loss: tensor(0.0038, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 25/50, Iteration: 107/107, loss : 22880.95703125, quadratic_weighted_kappa: 0.8224008858291408, pearson: [0.83059275], spearman: 0.9942699319386282
+test  Epoch: 25/50, Iteration: 107/107, loss: 23043.255859375, quadratic_weighted_kappa: 0.8132655480336117, pearson: 0.9980478774272875, spearman: [0.82970256]
+best result Epoch : 25,quadratic_weighted_kappa: 0.8132655480336117, pearson: [0.82970256], spearman: 0.9980478774272875
+begin train
+loss: tensor(0.0024, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 26/50, Iteration: 107/107, loss : 22947.3984375, quadratic_weighted_kappa: 0.7978534816158102, pearson: [0.80491227], spearman: 0.9942430631784445
+test  Epoch: 26/50, Iteration: 107/107, loss: 23106.466796875, quadratic_weighted_kappa: 0.8114694294469575, pearson: 0.9960481163779302, spearman: [0.82107484]
+begin train
+loss: tensor(0.0028, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 27/50, Iteration: 107/107, loss : 23034.65625, quadratic_weighted_kappa: 0.7513550686267831, pearson: [0.8048419], spearman: 0.9961293160789518
+test  Epoch: 27/50, Iteration: 107/107, loss: 23205.474609375, quadratic_weighted_kappa: 0.7638656290020688, pearson: 0.9978249821050761, spearman: [0.82106405]
+begin train
+loss: tensor(0.0031, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 28/50, Iteration: 107/107, loss : 23165.509765625, quadratic_weighted_kappa: 0.7342447845743232, pearson: [0.7980968], spearman: 0.9942387114283288
+test  Epoch: 28/50, Iteration: 107/107, loss: 23326.9140625, quadratic_weighted_kappa: 0.7640345465761875, pearson: 0.998221815560698, spearman: [0.83227944]
+begin train
+loss: tensor(0.0025, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 29/50, Iteration: 107/107, loss : 22909.28515625, quadratic_weighted_kappa: 0.8082569725387045, pearson: [0.82035226], spearman: 0.9916156610783162
+test  Epoch: 29/50, Iteration: 107/107, loss: 23075.625, quadratic_weighted_kappa: 0.8087609810390747, pearson: 0.9901803088318373, spearman: [0.8274392]
+begin train
+loss: tensor(0.0035, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 30/50, Iteration: 107/107, loss : 23126.103515625, quadratic_weighted_kappa: 0.7437906064529849, pearson: [0.8013903], spearman: 0.9910259659698416
+test  Epoch: 30/50, Iteration: 107/107, loss: 23292.3046875, quadratic_weighted_kappa: 0.7564469914040113, pearson: 0.9937925911058667, spearman: [0.8199121]
+begin train
+loss: tensor(0.0031, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 31/50, Iteration: 107/107, loss : 23164.677734375, quadratic_weighted_kappa: 0.743403911233566, pearson: [0.8110173], spearman: 0.994807735723754
+test  Epoch: 31/50, Iteration: 107/107, loss: 23331.10546875, quadratic_weighted_kappa: 0.7569869642504443, pearson: 0.9925779253387376, spearman: [0.8318426]
+begin train
+loss: tensor(0.0035, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 32/50, Iteration: 107/107, loss : 22956.14453125, quadratic_weighted_kappa: 0.7990213945890449, pearson: [0.80849934], spearman: 0.9957989457160054
+test  Epoch: 32/50, Iteration: 107/107, loss: 23119.4140625, quadratic_weighted_kappa: 0.8079564646275099, pearson: 0.9970967233167826, spearman: [0.8229226]
+begin train
+loss: tensor(0.0019, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 33/50, Iteration: 107/107, loss : 22964.375, quadratic_weighted_kappa: 0.7905421262614409, pearson: [0.8040698], spearman: 0.997198099313795
+test  Epoch: 33/50, Iteration: 107/107, loss: 23128.0625, quadratic_weighted_kappa: 0.8062256219941681, pearson: 0.9871747000852943, spearman: [0.82251036]
+begin train
+loss: tensor(0.0042, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 34/50, Iteration: 107/107, loss : 22917.681640625, quadratic_weighted_kappa: 0.805374677002584, pearson: [0.8172908], spearman: 0.9941388849181001
+test  Epoch: 34/50, Iteration: 107/107, loss: 23076.85546875, quadratic_weighted_kappa: 0.7986379776352748, pearson: 0.9968911690594259, spearman: [0.8171894]
+begin train
+loss: tensor(0.0056, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 35/50, Iteration: 107/107, loss : 22818.98046875, quadratic_weighted_kappa: 0.8081123609509862, pearson: [0.81348413], spearman: 0.9940574544424511
+test  Epoch: 35/50, Iteration: 107/107, loss: 22974.736328125, quadratic_weighted_kappa: 0.8107098062303222, pearson: 0.996147547274512, spearman: [0.8226609]
+begin train
+loss: tensor(0.0060, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 36/50, Iteration: 107/107, loss : 22956.037109375, quadratic_weighted_kappa: 0.7682525160109791, pearson: [0.80004853], spearman: 0.9967211540946803
+test  Epoch: 36/50, Iteration: 107/107, loss: 23123.482421875, quadratic_weighted_kappa: 0.7851123595505618, pearson: 0.9962949463257779, spearman: [0.8226861]
+begin train
+loss: tensor(0.0012, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 37/50, Iteration: 107/107, loss : 22950.859375, quadratic_weighted_kappa: 0.7775846294602012, pearson: [0.8097672], spearman: 0.9963307823286242
+test  Epoch: 37/50, Iteration: 107/107, loss: 23132.701171875, quadratic_weighted_kappa: 0.7843343191177691, pearson: 0.996602865614264, spearman: [0.8188992]
+begin train
+loss: tensor(0.0030, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 38/50, Iteration: 107/107, loss : 22895.74609375, quadratic_weighted_kappa: 0.801661875890722, pearson: [0.8114135], spearman: 0.9993927330520432
+test  Epoch: 38/50, Iteration: 107/107, loss: 23053.236328125, quadratic_weighted_kappa: 0.801644479248238, pearson: 0.9923746788276543, spearman: [0.81583893]
+begin train
+loss: tensor(0.0010, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 39/50, Iteration: 107/107, loss : 23194.546875, quadratic_weighted_kappa: 0.7111347035372051, pearson: [0.78709805], spearman: 0.9959933568556416
+test  Epoch: 39/50, Iteration: 107/107, loss: 23354.595703125, quadratic_weighted_kappa: 0.7451767912214015, pearson: 0.9958520238802947, spearman: [0.8259184]
+begin train
+loss: tensor(0.0014, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 40/50, Iteration: 107/107, loss : 22997.73828125, quadratic_weighted_kappa: 0.7879591892557236, pearson: [0.8078026], spearman: 0.9983125759248523
+test  Epoch: 40/50, Iteration: 107/107, loss: 23156.99609375, quadratic_weighted_kappa: 0.7958962860606693, pearson: 0.9948121204416737, spearman: [0.8198608]
+begin train
+loss: tensor(0.0090, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 41/50, Iteration: 107/107, loss : 22955.41015625, quadratic_weighted_kappa: 0.7978471474703984, pearson: [0.8057181], spearman: 0.9938623180111289
+test  Epoch: 41/50, Iteration: 107/107, loss: 23106.37890625, quadratic_weighted_kappa: 0.8000426424078746, pearson: 0.9927958425225593, spearman: [0.80886096]
+begin train
+loss: tensor(0.0012, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 42/50, Iteration: 107/107, loss : 23043.111328125, quadratic_weighted_kappa: 0.7531764946705072, pearson: [0.79287565], spearman: 0.9964291912232849
+test  Epoch: 42/50, Iteration: 107/107, loss: 23211.7890625, quadratic_weighted_kappa: 0.7724430907342097, pearson: 0.9927575998700278, spearman: [0.8152621]
+begin train
+loss: tensor(0.0024, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 43/50, Iteration: 107/107, loss : 22803.33984375, quadratic_weighted_kappa: 0.8037913046832063, pearson: [0.8080237], spearman: 0.9935240024074409
+test  Epoch: 43/50, Iteration: 107/107, loss: 22962.99609375, quadratic_weighted_kappa: 0.8048686866185412, pearson: 0.9965649196719677, spearman: [0.81271404]
+begin train
+loss: tensor(0.0016, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 44/50, Iteration: 107/107, loss : 22968.025390625, quadratic_weighted_kappa: 0.7925530931931066, pearson: [0.81319386], spearman: 0.9982135736097213
+test  Epoch: 44/50, Iteration: 107/107, loss: 23124.578125, quadratic_weighted_kappa: 0.7965834842163269, pearson: 0.9960832270890906, spearman: [0.81756824]
+begin train
+loss: tensor(0.0048, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 45/50, Iteration: 107/107, loss : 22876.412109375, quadratic_weighted_kappa: 0.8049942557894061, pearson: [0.809953], spearman: 0.9967002525070037
+test  Epoch: 45/50, Iteration: 107/107, loss: 23032.662109375, quadratic_weighted_kappa: 0.8018468059339994, pearson: 0.9965890521044273, spearman: [0.810621]
+begin train
+loss: tensor(0.0007, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 46/50, Iteration: 107/107, loss : 23066.771484375, quadratic_weighted_kappa: 0.7494849054913555, pearson: [0.78276485], spearman: 0.9979791395561426
+test  Epoch: 46/50, Iteration: 107/107, loss: 23220.447265625, quadratic_weighted_kappa: 0.7871457600720344, pearson: 0.9964200921094067, spearman: [0.81813306]
+begin train
+loss: tensor(0.0023, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 47/50, Iteration: 107/107, loss : 22937.47265625, quadratic_weighted_kappa: 0.7925382762206923, pearson: [0.7995978], spearman: 0.9956079961957792
+test  Epoch: 47/50, Iteration: 107/107, loss: 23089.095703125, quadratic_weighted_kappa: 0.8004058559211481, pearson: 0.9955241261026412, spearman: [0.8072697]
+begin train
+loss: tensor(0.0045, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 48/50, Iteration: 107/107, loss : 22941.32421875, quadratic_weighted_kappa: 0.8034828323833124, pearson: [0.81068325], spearman: 0.9955083015567661
+test  Epoch: 48/50, Iteration: 107/107, loss: 23096.12890625, quadratic_weighted_kappa: 0.8212867355043686, pearson: 0.9929735389856149, spearman: [0.82799155]
+begin train
+loss: tensor(0.0011, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 49/50, Iteration: 107/107, loss : 23065.130859375, quadratic_weighted_kappa: 0.7649422664193526, pearson: [0.7992257], spearman: 0.9954837405428558
+test  Epoch: 49/50, Iteration: 107/107, loss: 23224.595703125, quadratic_weighted_kappa: 0.7925072046109511, pearson: 0.9943047789073574, spearman: [0.822521]
+begin train
+loss: tensor(0.0022, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 50/50, Iteration: 107/107, loss : 22923.81640625, quadratic_weighted_kappa: 0.8002186732958165, pearson: [0.80431485], spearman: 0.9930025506530527
+test  Epoch: 50/50, Iteration: 107/107, loss: 23068.001953125, quadratic_weighted_kappa: 0.8143778100245023, pearson: 0.9973609272972889, spearman: [0.8190363]
+best result Epoch : 50,quadratic_weighted_kappa: 0.8132655480336117, pearson: [0.82970256], spearman: 0.9980478774272875
+Loading data... - INFO - Creating vocabulary from: data/fold_3/train.tsv
+Loading data... - INFO -   432340 total words, 11941 unique words
+Loading data... - INFO - Reading dataset from: data/fold_3/train.tsv
+Loading data... - INFO -   <num> hit rate: 0.00%, <unk> hit rate: 5.31%
+Loading data... - INFO - Reading dataset from: data/fold_3/dev.tsv
+Loading data... - INFO -   <num> hit rate: 0.00%, <unk> hit rate: 6.15%
+Loading data... - INFO - Reading dataset from: data/fold_3/test.tsv
+Loading data... - INFO -   <num> hit rate: 0.00%, <unk> hit rate: 6.25%
+Loading data... - INFO - Training data max sentence num = 71, max sentence length = 50
+Loading data... - INFO - Dev data max sentence num = 53, max sentence length = 50
+Loading data... - INFO - Test data max sentence num = 52, max sentence length = 50
+Loading data... - INFO - Overall max sentence num = 71, max sentence length = 50
+Loading data... - INFO - Statistics:
+Loading data... - INFO -   train X shape: (1070, 71, 50)
+Loading data... - INFO -   dev X shape:   (357, 71, 50)
+Loading data... - INFO -   test X shape:  (356, 71, 50)
+Loading data... - INFO -   train Y shape: (1070, 1)
+Loading data... - INFO -   dev Y shape:   (357, 1)
+Loading data... - INFO -   test Y shape:  (356, 1)
+Loading data... - INFO -   train_y mean: [8.504673], stdev: [1.5234848], train_y mean after scaling: [0.6504673]
+Loading data... - INFO - Loading GloVe ...
+Loading data... - INFO - OOV number =685, OOV ratio = 0.127182
+HierAttNet(
+  (word_att_net): WordAttNet(
+    (lookup): Embedding(5387, 50)
+    (conv1): Conv1d(50, 100, kernel_size=(5,), stride=(1,))
+    (dropout): Dropout(p=0.5, inplace=False)
+    (fc1): Linear(in_features=100, out_features=100, bias=True)
+    (fc2): Linear(in_features=100, out_features=1, bias=False)
+  )
+  (sent_att_net): SentAttNet(
+    (LSTM): LSTM(100, 100)
+    (fc): Linear(in_features=100, out_features=1, bias=True)
+    (fc1): Linear(in_features=100, out_features=100, bias=True)
+    (fc2): Linear(in_features=100, out_features=1, bias=False)
+  )
+)
+begin train
+loss: tensor(0.0074, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 1/50, Iteration: 107/107, loss : 23002.646484375, quadratic_weighted_kappa: 0.6808672018203654, pearson: [0.75975037], spearman: 0.9943304937944043
+test  Epoch: 1/50, Iteration: 107/107, loss: 23061.57421875, quadratic_weighted_kappa: 0.6641152851241265, pearson: 0.9987151926762159, spearman: [0.7483123]
+best result Epoch : 1,quadratic_weighted_kappa: 0.6641152851241265, pearson: [0.7483123], spearman: 0.9987151926762159
+begin train
+loss: tensor(0.0111, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 2/50, Iteration: 107/107, loss : 23299.283203125, quadratic_weighted_kappa: 0.6833481847710483, pearson: [0.77619815], spearman: 0.9928910865080449
+test  Epoch: 2/50, Iteration: 107/107, loss: 23382.375, quadratic_weighted_kappa: 0.6681961571551477, pearson: 0.9896143549997939, spearman: [0.7838586]
+best result Epoch : 2,quadratic_weighted_kappa: 0.6681961571551477, pearson: [0.7838586], spearman: 0.9896143549997939
+begin train
+loss: tensor(0.0096, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 3/50, Iteration: 107/107, loss : 23098.2734375, quadratic_weighted_kappa: 0.7547114979439414, pearson: [0.79743356], spearman: 0.9961806139818302
+test  Epoch: 3/50, Iteration: 107/107, loss: 23179.970703125, quadratic_weighted_kappa: 0.7452843480864404, pearson: 0.9992969382720647, spearman: [0.7951479]
+best result Epoch : 3,quadratic_weighted_kappa: 0.7452843480864404, pearson: [0.7951479], spearman: 0.9992969382720647
+begin train
+loss: tensor(0.0039, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 4/50, Iteration: 107/107, loss : 22940.462890625, quadratic_weighted_kappa: 0.7801038209514084, pearson: [0.81841546], spearman: 0.9948156479966916
+test  Epoch: 4/50, Iteration: 107/107, loss: 23021.3359375, quadratic_weighted_kappa: 0.756928832373191, pearson: 0.9954482014359787, spearman: [0.8030526]
+best result Epoch : 4,quadratic_weighted_kappa: 0.756928832373191, pearson: [0.8030526], spearman: 0.9954482014359787
+begin train
+loss: tensor(0.0091, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 5/50, Iteration: 107/107, loss : 23193.716796875, quadratic_weighted_kappa: 0.7535282049869886, pearson: [0.7967828], spearman: 0.9985764831951235
+test  Epoch: 5/50, Iteration: 107/107, loss: 23274.033203125, quadratic_weighted_kappa: 0.7388281779555939, pearson: 0.996188898094449, spearman: [0.79639196]
+begin train
+loss: tensor(0.0029, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 6/50, Iteration: 107/107, loss : 23182.6015625, quadratic_weighted_kappa: 0.7649899285339808, pearson: [0.8059402], spearman: 0.9933213163490241
+test  Epoch: 6/50, Iteration: 107/107, loss: 23262.7109375, quadratic_weighted_kappa: 0.7499709094535965, pearson: 0.9989481169901099, spearman: [0.8051276]
+begin train
+loss: tensor(0.0043, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 7/50, Iteration: 107/107, loss : 23307.1015625, quadratic_weighted_kappa: 0.7432613267061747, pearson: [0.81180924], spearman: 0.9977142102839504
+test  Epoch: 7/50, Iteration: 107/107, loss: 23398.1171875, quadratic_weighted_kappa: 0.733123480180812, pearson: 0.9994076488009351, spearman: [0.81751245]
+begin train
+loss: tensor(0.0052, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 8/50, Iteration: 107/107, loss : 22941.482421875, quadratic_weighted_kappa: 0.800480250377725, pearson: [0.8270457], spearman: 0.9974718309896302
+test  Epoch: 8/50, Iteration: 107/107, loss: 23020.126953125, quadratic_weighted_kappa: 0.7926847400505526, pearson: 0.9974529264150668, spearman: [0.8195806]
+best result Epoch : 8,quadratic_weighted_kappa: 0.7926847400505526, pearson: [0.8195806], spearman: 0.9974529264150668
+begin train
+loss: tensor(0.0080, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 9/50, Iteration: 107/107, loss : 23092.3359375, quadratic_weighted_kappa: 0.7832251097235106, pearson: [0.8125602], spearman: 0.999124309192637
+test  Epoch: 9/50, Iteration: 107/107, loss: 23175.294921875, quadratic_weighted_kappa: 0.7799092985425325, pearson: 0.9926105210243616, spearman: [0.80813116]
+begin train
+loss: tensor(0.0039, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 10/50, Iteration: 107/107, loss : 23186.439453125, quadratic_weighted_kappa: 0.7791086276501885, pearson: [0.8179868], spearman: 0.9945854997576207
+test  Epoch: 10/50, Iteration: 107/107, loss: 23277.0625, quadratic_weighted_kappa: 0.7678883746846414, pearson: 0.9966180426910438, spearman: [0.8102086]
+begin train
+loss: tensor(0.0137, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 11/50, Iteration: 107/107, loss : 23069.52734375, quadratic_weighted_kappa: 0.7938900853473718, pearson: [0.8119945], spearman: 0.9984818326301081
+test  Epoch: 11/50, Iteration: 107/107, loss: 23158.65625, quadratic_weighted_kappa: 0.7825457823322897, pearson: 0.9981568857959389, spearman: [0.8012396]
+begin train
+loss: tensor(0.0140, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 12/50, Iteration: 107/107, loss : 23142.083984375, quadratic_weighted_kappa: 0.802877661961997, pearson: [0.8205498], spearman: 0.992054132870272
+test  Epoch: 12/50, Iteration: 107/107, loss: 23232.73046875, quadratic_weighted_kappa: 0.7872399052711538, pearson: 0.9973028853890029, spearman: [0.81367165]
+best result Epoch : 12,quadratic_weighted_kappa: 0.7872399052711538, pearson: [0.81367165], spearman: 0.9973028853890029
+begin train
+loss: tensor(0.0049, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 13/50, Iteration: 107/107, loss : 23083.931640625, quadratic_weighted_kappa: 0.7935485513519018, pearson: [0.80531275], spearman: 0.9983990175066951
+test  Epoch: 13/50, Iteration: 107/107, loss: 23173.2578125, quadratic_weighted_kappa: 0.808858524028316, pearson: 0.9970543352647279, spearman: [0.82229084]
+begin train
+loss: tensor(0.0187, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 14/50, Iteration: 107/107, loss : 23355.173828125, quadratic_weighted_kappa: 0.7527670793492656, pearson: [0.83478624], spearman: 0.9927927765167959
+test  Epoch: 14/50, Iteration: 107/107, loss: 23438.185546875, quadratic_weighted_kappa: 0.7340185144689847, pearson: 0.9968421567075952, spearman: [0.8294667]
+begin train
+loss: tensor(0.0039, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 15/50, Iteration: 107/107, loss : 23307.796875, quadratic_weighted_kappa: 0.7636115636721857, pearson: [0.8312689], spearman: 0.9955641490165836
+test  Epoch: 15/50, Iteration: 107/107, loss: 23392.583984375, quadratic_weighted_kappa: 0.7411440077559848, pearson: 0.9954020554257468, spearman: [0.8281888]
+begin train
+loss: tensor(0.0051, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 16/50, Iteration: 107/107, loss : 23350.529296875, quadratic_weighted_kappa: 0.749125209189107, pearson: [0.83336926], spearman: 0.994141390471197
+test  Epoch: 16/50, Iteration: 107/107, loss: 23437.181640625, quadratic_weighted_kappa: 0.725927890494924, pearson: 0.997410902959063, spearman: [0.821981]
+begin train
+loss: tensor(0.0098, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 17/50, Iteration: 107/107, loss : 23101.279296875, quadratic_weighted_kappa: 0.7704903754028394, pearson: [0.8159093], spearman: 0.9978913462943397
+test  Epoch: 17/50, Iteration: 107/107, loss: 23180.015625, quadratic_weighted_kappa: 0.7587701125612871, pearson: 0.996837535457291, spearman: [0.8050953]
+begin train
+loss: tensor(0.0057, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 18/50, Iteration: 107/107, loss : 23155.65625, quadratic_weighted_kappa: 0.7840881859573448, pearson: [0.8145732], spearman: 0.9981786277375805
+test  Epoch: 18/50, Iteration: 107/107, loss: 23241.322265625, quadratic_weighted_kappa: 0.7731899233161899, pearson: 0.9952635176558359, spearman: [0.80689466]
+begin train
+loss: tensor(0.0021, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 19/50, Iteration: 107/107, loss : 23099.470703125, quadratic_weighted_kappa: 0.805407880344924, pearson: [0.8193422], spearman: 0.9910526369232019
+test  Epoch: 19/50, Iteration: 107/107, loss: 23185.6796875, quadratic_weighted_kappa: 0.8035808439161808, pearson: 0.999003405761735, spearman: [0.8213901]
+best result Epoch : 19,quadratic_weighted_kappa: 0.8035808439161808, pearson: [0.8213901], spearman: 0.999003405761735
+begin train
+loss: tensor(0.0045, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 20/50, Iteration: 107/107, loss : 23175.2265625, quadratic_weighted_kappa: 0.7979655992025967, pearson: [0.8254838], spearman: 0.9949882344501418
+test  Epoch: 20/50, Iteration: 107/107, loss: 23263.279296875, quadratic_weighted_kappa: 0.7826153329466004, pearson: 0.9963258732833219, spearman: [0.8230642]
+begin train
+loss: tensor(0.0065, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 21/50, Iteration: 107/107, loss : 23025.41796875, quadratic_weighted_kappa: 0.7999841540228975, pearson: [0.81590724], spearman: 0.995907277919642
+test  Epoch: 21/50, Iteration: 107/107, loss: 23112.44140625, quadratic_weighted_kappa: 0.8021057687837985, pearson: 0.997530855988542, spearman: [0.81380254]
+begin train
+loss: tensor(0.0057, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 22/50, Iteration: 107/107, loss : 23293.875, quadratic_weighted_kappa: 0.7327592262197435, pearson: [0.83367884], spearman: 0.9966330311548385
+test  Epoch: 22/50, Iteration: 107/107, loss: 23372.357421875, quadratic_weighted_kappa: 0.7148245189499507, pearson: 0.9975665958739881, spearman: [0.82112366]
+begin train
+loss: tensor(0.0044, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 23/50, Iteration: 107/107, loss : 23290.220703125, quadratic_weighted_kappa: 0.7728485153497736, pearson: [0.83946705], spearman: 0.9947125576738761
+test  Epoch: 23/50, Iteration: 107/107, loss: 23376.939453125, quadratic_weighted_kappa: 0.7437414485257634, pearson: 0.996061364884615, spearman: [0.8222975]
+begin train
+loss: tensor(0.0054, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 24/50, Iteration: 107/107, loss : 23113.951171875, quadratic_weighted_kappa: 0.8061181676011749, pearson: [0.8209479], spearman: 0.9963509256568109
+test  Epoch: 24/50, Iteration: 107/107, loss: 23206.40234375, quadratic_weighted_kappa: 0.7882292702027047, pearson: 0.9981644659762939, spearman: [0.8064979]
+best result Epoch : 24,quadratic_weighted_kappa: 0.7882292702027047, pearson: [0.8064979], spearman: 0.9981644659762939
+begin train
+loss: tensor(0.0036, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 25/50, Iteration: 107/107, loss : 23148.861328125, quadratic_weighted_kappa: 0.7930541421376032, pearson: [0.8145807], spearman: 0.9965506116450723
+test  Epoch: 25/50, Iteration: 107/107, loss: 23236.115234375, quadratic_weighted_kappa: 0.7669572579886482, pearson: 0.9944881449968815, spearman: [0.8039749]
+begin train
+loss: tensor(0.0041, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 26/50, Iteration: 107/107, loss : 23194.4375, quadratic_weighted_kappa: 0.7858274787385768, pearson: [0.82180744], spearman: 0.9921127166578138
+test  Epoch: 26/50, Iteration: 107/107, loss: 23276.62890625, quadratic_weighted_kappa: 0.7596613766669833, pearson: 0.9949723123938609, spearman: [0.8108879]
+begin train
+loss: tensor(0.0016, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 27/50, Iteration: 107/107, loss : 23193.82421875, quadratic_weighted_kappa: 0.7795284735395455, pearson: [0.8126691], spearman: 0.9903344333151
+test  Epoch: 27/50, Iteration: 107/107, loss: 23283.54296875, quadratic_weighted_kappa: 0.7560247403787416, pearson: 0.9932170351919847, spearman: [0.79989356]
+begin train
+loss: tensor(0.0048, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 28/50, Iteration: 107/107, loss : 23239.837890625, quadratic_weighted_kappa: 0.7621714953842808, pearson: [0.8236129], spearman: 0.995363836640048
+test  Epoch: 28/50, Iteration: 107/107, loss: 23326.671875, quadratic_weighted_kappa: 0.7462901101724858, pearson: 0.9963042298736238, spearman: [0.820086]
+begin train
+loss: tensor(0.0068, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 29/50, Iteration: 107/107, loss : 22972.498046875, quadratic_weighted_kappa: 0.7873595012886075, pearson: [0.81039864], spearman: 0.9961409537137308
+test  Epoch: 29/50, Iteration: 107/107, loss: 23065.77734375, quadratic_weighted_kappa: 0.7861306402117262, pearson: 0.9946250204465391, spearman: [0.8062319]
+begin train
+loss: tensor(0.0040, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 30/50, Iteration: 107/107, loss : 23088.591796875, quadratic_weighted_kappa: 0.7986108431410379, pearson: [0.8122359], spearman: 0.9967397809038875
+test  Epoch: 30/50, Iteration: 107/107, loss: 23174.453125, quadratic_weighted_kappa: 0.7939261272937049, pearson: 0.9941938145728303, spearman: [0.8168361]
+begin train
+loss: tensor(0.0014, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 31/50, Iteration: 107/107, loss : 23325.501953125, quadratic_weighted_kappa: 0.7194348803821671, pearson: [0.7907135], spearman: 0.9983244773020626
+test  Epoch: 31/50, Iteration: 107/107, loss: 23418.326171875, quadratic_weighted_kappa: 0.7229722634744911, pearson: 0.9914202664765859, spearman: [0.81819177]
+begin train
+loss: tensor(0.0029, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 32/50, Iteration: 107/107, loss : 23235.03125, quadratic_weighted_kappa: 0.7732782703753189, pearson: [0.8074582], spearman: 0.9971207238780265
+test  Epoch: 32/50, Iteration: 107/107, loss: 23335.505859375, quadratic_weighted_kappa: 0.7662231408517419, pearson: 0.9979389888571348, spearman: [0.8209937]
+begin train
+loss: tensor(0.0043, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 33/50, Iteration: 107/107, loss : 23137.51171875, quadratic_weighted_kappa: 0.782346609257266, pearson: [0.8011482], spearman: 0.9974524129531293
+test  Epoch: 33/50, Iteration: 107/107, loss: 23242.30078125, quadratic_weighted_kappa: 0.7610897711599212, pearson: 0.9937520030959053, spearman: [0.7871458]
+begin train
+loss: tensor(0.0065, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 34/50, Iteration: 107/107, loss : 23068.232421875, quadratic_weighted_kappa: 0.7970385301186138, pearson: [0.8103458], spearman: 0.9955350054779303
+test  Epoch: 34/50, Iteration: 107/107, loss: 23159.29296875, quadratic_weighted_kappa: 0.7883513585634231, pearson: 0.9944815954550834, spearman: [0.80650747]
+begin train
+loss: tensor(0.0018, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 35/50, Iteration: 107/107, loss : 23203.7890625, quadratic_weighted_kappa: 0.7678360676998897, pearson: [0.8032844], spearman: 0.9908333021238123
+test  Epoch: 35/50, Iteration: 107/107, loss: 23308.33203125, quadratic_weighted_kappa: 0.740917244314727, pearson: 0.9959134516284754, spearman: [0.7932066]
+begin train
+loss: tensor(0.0029, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 36/50, Iteration: 107/107, loss : 23199.984375, quadratic_weighted_kappa: 0.7563933986314236, pearson: [0.7977287], spearman: 0.9974828422361349
+test  Epoch: 36/50, Iteration: 107/107, loss: 23295.26171875, quadratic_weighted_kappa: 0.7446955128205128, pearson: 0.994769043873286, spearman: [0.80400336]
+begin train
+loss: tensor(0.0018, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 37/50, Iteration: 107/107, loss : 23084.810546875, quadratic_weighted_kappa: 0.7828842675081267, pearson: [0.8066582], spearman: 0.9951106439060465
+test  Epoch: 37/50, Iteration: 107/107, loss: 23181.271484375, quadratic_weighted_kappa: 0.7656978450102697, pearson: 0.9958035057669214, spearman: [0.79277015]
+begin train
+loss: tensor(0.0038, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 38/50, Iteration: 107/107, loss : 23159.1171875, quadratic_weighted_kappa: 0.7748302127499906, pearson: [0.7955141], spearman: 0.9916137819134936
+test  Epoch: 38/50, Iteration: 107/107, loss: 23263.298828125, quadratic_weighted_kappa: 0.7675314326190898, pearson: 0.9969597159959094, spearman: [0.7971485]
+begin train
+loss: tensor(0.0026, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 39/50, Iteration: 107/107, loss : 23219.30078125, quadratic_weighted_kappa: 0.7638015284706363, pearson: [0.7998618], spearman: 0.9925787495338353
+test  Epoch: 39/50, Iteration: 107/107, loss: 23320.01171875, quadratic_weighted_kappa: 0.7560262800181242, pearson: 0.9974307510628876, spearman: [0.8142794]
+begin train
+loss: tensor(0.0026, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 40/50, Iteration: 107/107, loss : 23074.140625, quadratic_weighted_kappa: 0.7981048371894283, pearson: [0.8079724], spearman: 0.9917014762718847
+test  Epoch: 40/50, Iteration: 107/107, loss: 23175.126953125, quadratic_weighted_kappa: 0.7863322713614882, pearson: 0.9959121550186778, spearman: [0.8017584]
+begin train
+loss: tensor(0.0044, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 41/50, Iteration: 107/107, loss : 23193.244140625, quadratic_weighted_kappa: 0.7680500284252415, pearson: [0.80904233], spearman: 0.9951957008401251
+test  Epoch: 41/50, Iteration: 107/107, loss: 23290.912109375, quadratic_weighted_kappa: 0.7351406441092541, pearson: 0.9980376641873714, spearman: [0.7989275]
+begin train
+loss: tensor(0.0015, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 42/50, Iteration: 107/107, loss : 23235.015625, quadratic_weighted_kappa: 0.7526195899772209, pearson: [0.8032269], spearman: 0.9947344153278661
+test  Epoch: 42/50, Iteration: 107/107, loss: 23328.701171875, quadratic_weighted_kappa: 0.7330732463914915, pearson: 0.9943289279630193, spearman: [0.8033928]
+begin train
+loss: tensor(0.0018, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 43/50, Iteration: 107/107, loss : 23159.2890625, quadratic_weighted_kappa: 0.7886404479272362, pearson: [0.8070403], spearman: 0.9890024351338678
+test  Epoch: 43/50, Iteration: 107/107, loss: 23260.044921875, quadratic_weighted_kappa: 0.776264930686739, pearson: 0.9965038745360464, spearman: [0.80310434]
+begin train
+loss: tensor(0.0006, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 44/50, Iteration: 107/107, loss : 23162.5, quadratic_weighted_kappa: 0.765170871925902, pearson: [0.7968357], spearman: 0.9962666269822221
+test  Epoch: 44/50, Iteration: 107/107, loss: 23262.396484375, quadratic_weighted_kappa: 0.7575596389426177, pearson: 0.9882821050559802, spearman: [0.8043278]
+begin train
+loss: tensor(0.0024, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 45/50, Iteration: 107/107, loss : 23277.7890625, quadratic_weighted_kappa: 0.7442026673473294, pearson: [0.7983719], spearman: 0.9939221216074152
+test  Epoch: 45/50, Iteration: 107/107, loss: 23381.560546875, quadratic_weighted_kappa: 0.72440655600042, pearson: 0.9966096645969671, spearman: [0.8001101]
+begin train
+loss: tensor(0.0011, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 46/50, Iteration: 107/107, loss : 23018.8203125, quadratic_weighted_kappa: 0.8051722683505864, pearson: [0.8086157], spearman: 0.9948779571460749
+test  Epoch: 46/50, Iteration: 107/107, loss: 23122.701171875, quadratic_weighted_kappa: 0.7890320516549358, pearson: 0.9948495666663564, spearman: [0.79456604]
+begin train
+loss: tensor(0.0021, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 47/50, Iteration: 107/107, loss : 23184.294921875, quadratic_weighted_kappa: 0.7852105150673221, pearson: [0.8141347], spearman: 0.9893999609133717
+test  Epoch: 47/50, Iteration: 107/107, loss: 23276.759765625, quadratic_weighted_kappa: 0.7716489171822941, pearson: 0.9992185764953235, spearman: [0.8088142]
+begin train
+loss: tensor(0.0012, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 48/50, Iteration: 107/107, loss : 23061.529296875, quadratic_weighted_kappa: 0.772985839351273, pearson: [0.79247385], spearman: 0.9992182674337703
+test  Epoch: 48/50, Iteration: 107/107, loss: 23159.43359375, quadratic_weighted_kappa: 0.771289068773891, pearson: 0.9969146671170447, spearman: [0.7931083]
+begin train
+loss: tensor(0.0021, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 49/50, Iteration: 107/107, loss : 23263.283203125, quadratic_weighted_kappa: 0.7538213998390988, pearson: [0.80533326], spearman: 0.9873766278842213
+test  Epoch: 49/50, Iteration: 107/107, loss: 23356.333984375, quadratic_weighted_kappa: 0.7289494538278665, pearson: 0.9972079669025389, spearman: [0.80432534]
+begin train
+loss: tensor(0.0034, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 50/50, Iteration: 107/107, loss : 23131.6953125, quadratic_weighted_kappa: 0.7733509542503985, pearson: [0.7933618], spearman: 0.9950115097196999
+test  Epoch: 50/50, Iteration: 107/107, loss: 23221.162109375, quadratic_weighted_kappa: 0.7690059391124068, pearson: 0.9987913934366277, spearman: [0.79561746]
+best result Epoch : 50,quadratic_weighted_kappa: 0.7882292702027047, pearson: [0.8064979], spearman: 0.9981644659762939
+Loading data... - INFO - Creating vocabulary from: data/fold_4/train.tsv
+Loading data... - INFO -   436113 total words, 11987 unique words
+Loading data... - INFO - Reading dataset from: data/fold_4/train.tsv
+Loading data... - INFO -   <num> hit rate: 0.00%, <unk> hit rate: 3.99%
+Loading data... - INFO - Reading dataset from: data/fold_4/dev.tsv
+Loading data... - INFO -   <num> hit rate: 0.00%, <unk> hit rate: 4.94%
+Loading data... - INFO - Reading dataset from: data/fold_4/test.tsv
+Loading data... - INFO -   <num> hit rate: 0.00%, <unk> hit rate: 4.89%
+Loading data... - INFO - Training data max sentence num = 71, max sentence length = 50
+Loading data... - INFO - Dev data max sentence num = 52, max sentence length = 50
+Loading data... - INFO - Test data max sentence num = 50, max sentence length = 50
+Loading data... - INFO - Overall max sentence num = 71, max sentence length = 50
+Loading data... - INFO - Statistics:
+Loading data... - INFO -   train X shape: (1071, 71, 50)
+Loading data... - INFO -   dev X shape:   (356, 71, 50)
+Loading data... - INFO -   test X shape:  (356, 71, 50)
+Loading data... - INFO -   train Y shape: (1071, 1)
+Loading data... - INFO -   dev Y shape:   (356, 1)
+Loading data... - INFO -   test Y shape:  (356, 1)
+Loading data... - INFO -   train_y mean: [8.518208], stdev: [1.5367867], train_y mean after scaling: [0.6518207]
+Loading data... - INFO - Loading GloVe ...
+Loading data... - INFO - OOV number =697, OOV ratio = 0.128196
+HierAttNet(
+  (word_att_net): WordAttNet(
+    (lookup): Embedding(5438, 50)
+    (conv1): Conv1d(50, 100, kernel_size=(5,), stride=(1,))
+    (dropout): Dropout(p=0.5, inplace=False)
+    (fc1): Linear(in_features=100, out_features=100, bias=True)
+    (fc2): Linear(in_features=100, out_features=1, bias=False)
+  )
+  (sent_att_net): SentAttNet(
+    (LSTM): LSTM(100, 100)
+    (fc): Linear(in_features=100, out_features=1, bias=True)
+    (fc1): Linear(in_features=100, out_features=100, bias=True)
+    (fc2): Linear(in_features=100, out_features=1, bias=False)
+  )
+)
+begin train
+loss: tensor(0.0045, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 1/50, Iteration: 108/108, loss : 22558.05078125, quadratic_weighted_kappa: 0.4601350724816864, pearson: [0.7148404], spearman: 0.9970725875411092
+test  Epoch: 1/50, Iteration: 108/108, loss: 22187.029296875, quadratic_weighted_kappa: 0.4722297191991457, pearson: 0.9934714366835514, spearman: [0.72486293]
+best result Epoch : 1,quadratic_weighted_kappa: 0.4722297191991457, pearson: [0.72486293], spearman: 0.9934714366835514
+begin train
+loss: tensor(0.0002, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 2/50, Iteration: 108/108, loss : 23679.337890625, quadratic_weighted_kappa: 0.5669384534455548, pearson: [0.79141414], spearman: 0.997935564477413
+test  Epoch: 2/50, Iteration: 108/108, loss: 23275.751953125, quadratic_weighted_kappa: 0.5762340179049066, pearson: 0.9863531153876332, spearman: [0.7804795]
+best result Epoch : 2,quadratic_weighted_kappa: 0.5762340179049066, pearson: [0.7804795], spearman: 0.9863531153876332
+begin train
+loss: tensor(0.0015, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 3/50, Iteration: 108/108, loss : 22927.173828125, quadratic_weighted_kappa: 0.7301269606748328, pearson: [0.78707856], spearman: 0.9966582375947689
+test  Epoch: 3/50, Iteration: 108/108, loss: 22550.369140625, quadratic_weighted_kappa: 0.76051151144641, pearson: 0.9973041155059903, spearman: [0.80489373]
+best result Epoch : 3,quadratic_weighted_kappa: 0.76051151144641, pearson: [0.80489373], spearman: 0.9973041155059903
+begin train
+loss: tensor(0.0072, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 4/50, Iteration: 108/108, loss : 23750.205078125, quadratic_weighted_kappa: 0.553665938783819, pearson: [0.78894645], spearman: 0.9973235314065491
+test  Epoch: 4/50, Iteration: 108/108, loss: 23360.0390625, quadratic_weighted_kappa: 0.5780575129836747, pearson: 0.9951959277143363, spearman: [0.80831265]
+begin train
+loss: tensor(0.0022, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 5/50, Iteration: 108/108, loss : 23039.62890625, quadratic_weighted_kappa: 0.7787776866283839, pearson: [0.80227894], spearman: 0.9983008427298756
+test  Epoch: 5/50, Iteration: 108/108, loss: 22658.380859375, quadratic_weighted_kappa: 0.7938945108492443, pearson: 0.992301429196461, spearman: [0.81406695]
+best result Epoch : 5,quadratic_weighted_kappa: 0.7938945108492443, pearson: [0.81406695], spearman: 0.992301429196461
+begin train
+loss: tensor(0.0014, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 6/50, Iteration: 108/108, loss : 23435.986328125, quadratic_weighted_kappa: 0.7118444741274175, pearson: [0.8049755], spearman: 0.9979131564003985
+test  Epoch: 6/50, Iteration: 108/108, loss: 23052.548828125, quadratic_weighted_kappa: 0.7439203734094928, pearson: 0.9951017738951887, spearman: [0.81960505]
+begin train
+loss: tensor(0.0120, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 7/50, Iteration: 108/108, loss : 23607.294921875, quadratic_weighted_kappa: 0.6261605644985722, pearson: [0.7787884], spearman: 0.998359289909982
+test  Epoch: 7/50, Iteration: 108/108, loss: 23202.703125, quadratic_weighted_kappa: 0.6490698942104627, pearson: 0.9958037384917569, spearman: [0.77786446]
+begin train
+loss: tensor(0.0006, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 8/50, Iteration: 108/108, loss : 23098.509765625, quadratic_weighted_kappa: 0.7795015047970602, pearson: [0.8054273], spearman: 0.990752578923641
+test  Epoch: 8/50, Iteration: 108/108, loss: 22711.427734375, quadratic_weighted_kappa: 0.7901566304732248, pearson: 0.9958106869904157, spearman: [0.81000286]
+best result Epoch : 8,quadratic_weighted_kappa: 0.7901566304732248, pearson: [0.81000286], spearman: 0.9958106869904157
+begin train
+loss: tensor(0.0097, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 9/50, Iteration: 108/108, loss : 22758.51953125, quadratic_weighted_kappa: 0.6754438911523566, pearson: [0.794461], spearman: 0.996929395274489
+test  Epoch: 9/50, Iteration: 108/108, loss: 22373.396484375, quadratic_weighted_kappa: 0.6956625225125157, pearson: 0.9983858205412248, spearman: [0.8148447]
+begin train
+loss: tensor(0.0051, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 10/50, Iteration: 108/108, loss : 22880.513671875, quadratic_weighted_kappa: 0.7263156993078874, pearson: [0.8068029], spearman: 0.996406761786848
+test  Epoch: 10/50, Iteration: 108/108, loss: 22493.423828125, quadratic_weighted_kappa: 0.7693701128556397, pearson: 0.9937230787234976, spearman: [0.8423219]
+begin train
+loss: tensor(0.0025, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 11/50, Iteration: 108/108, loss : 23716.763671875, quadratic_weighted_kappa: 0.5937956250714131, pearson: [0.8231052], spearman: 0.997201550346361
+test  Epoch: 11/50, Iteration: 108/108, loss: 23318.29296875, quadratic_weighted_kappa: 0.6014399737484677, pearson: 0.999221801396615, spearman: [0.8039242]
+begin train
+loss: tensor(0.0046, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 12/50, Iteration: 108/108, loss : 22805.974609375, quadratic_weighted_kappa: 0.7432078355531988, pearson: [0.8118427], spearman: 0.9974153247309369
+test  Epoch: 12/50, Iteration: 108/108, loss: 22416.763671875, quadratic_weighted_kappa: 0.761635068898548, pearson: 0.999675182622503, spearman: [0.8343409]
+begin train
+loss: tensor(0.0030, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 13/50, Iteration: 108/108, loss : 22967.73828125, quadratic_weighted_kappa: 0.8073118113876262, pearson: [0.82425493], spearman: 0.9948306162154686
+test  Epoch: 13/50, Iteration: 108/108, loss: 22586.619140625, quadratic_weighted_kappa: 0.8152572123613426, pearson: 0.9965468621377971, spearman: [0.8281996]
+best result Epoch : 13,quadratic_weighted_kappa: 0.8152572123613426, pearson: [0.8281996], spearman: 0.9965468621377971
+begin train
+loss: tensor(0.0007, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 14/50, Iteration: 108/108, loss : 23165.19140625, quadratic_weighted_kappa: 0.7954738472298546, pearson: [0.8277954], spearman: 0.9982665989326575
+test  Epoch: 14/50, Iteration: 108/108, loss: 22773.767578125, quadratic_weighted_kappa: 0.7978947541010485, pearson: 0.9978956687913336, spearman: [0.82290274]
+begin train
+loss: tensor(0.0187, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 15/50, Iteration: 108/108, loss : 23310.521484375, quadratic_weighted_kappa: 0.7146389194667226, pearson: [0.8069949], spearman: 0.9942064482067554
+test  Epoch: 15/50, Iteration: 108/108, loss: 22924.095703125, quadratic_weighted_kappa: 0.7593058633512377, pearson: 0.9972302752403382, spearman: [0.8232823]
+begin train
+loss: tensor(0.0006, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 16/50, Iteration: 108/108, loss : 22946.46484375, quadratic_weighted_kappa: 0.7729667298168644, pearson: [0.81466806], spearman: 0.9976001414967
+test  Epoch: 16/50, Iteration: 108/108, loss: 22559.890625, quadratic_weighted_kappa: 0.8026028712747961, pearson: 0.9952378514311248, spearman: [0.84356517]
+begin train
+loss: tensor(0.0022, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 17/50, Iteration: 108/108, loss : 23470.87890625, quadratic_weighted_kappa: 0.7226537260391988, pearson: [0.81728226], spearman: 0.9947859330470596
+test  Epoch: 17/50, Iteration: 108/108, loss: 23065.857421875, quadratic_weighted_kappa: 0.7511269261072293, pearson: 0.9967916886647047, spearman: [0.8234406]
+begin train
+loss: tensor(0.0113, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 18/50, Iteration: 108/108, loss : 23645.966796875, quadratic_weighted_kappa: 0.6174713226797441, pearson: [0.840905], spearman: 0.9993203769876363
+test  Epoch: 18/50, Iteration: 108/108, loss: 23247.169921875, quadratic_weighted_kappa: 0.6310113484528523, pearson: 0.9948979734321328, spearman: [0.824648]
+begin train
+loss: tensor(0.0049, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 19/50, Iteration: 108/108, loss : 23522.162109375, quadratic_weighted_kappa: 0.6796781272860278, pearson: [0.8303422], spearman: 0.9975671610628742
+test  Epoch: 19/50, Iteration: 108/108, loss: 23116.453125, quadratic_weighted_kappa: 0.7212806837975184, pearson: 0.9990306345674842, spearman: [0.84057415]
+begin train
+loss: tensor(0.0076, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 20/50, Iteration: 108/108, loss : 23758.462890625, quadratic_weighted_kappa: 0.5798344872081193, pearson: [0.8263709], spearman: 0.9972289453841356
+test  Epoch: 20/50, Iteration: 108/108, loss: 23357.197265625, quadratic_weighted_kappa: 0.5911787615414692, pearson: 0.9945859559205863, spearman: [0.812093]
+begin train
+loss: tensor(0.0125, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 21/50, Iteration: 108/108, loss : 22854.4453125, quadratic_weighted_kappa: 0.7807754348742243, pearson: [0.8144246], spearman: 0.9903505301471752
+test  Epoch: 21/50, Iteration: 108/108, loss: 22465.044921875, quadratic_weighted_kappa: 0.8012306830757743, pearson: 0.9980968095419842, spearman: [0.8344593]
+begin train
+loss: tensor(0.0026, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 22/50, Iteration: 108/108, loss : 22901.943359375, quadratic_weighted_kappa: 0.7850720760885719, pearson: [0.81186914], spearman: 0.9987214762467734
+test  Epoch: 22/50, Iteration: 108/108, loss: 22504.564453125, quadratic_weighted_kappa: 0.7951788910620124, pearson: 0.994672662544999, spearman: [0.81980217]
+begin train
+loss: tensor(0.0184, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 23/50, Iteration: 108/108, loss : 23715.615234375, quadratic_weighted_kappa: 0.6409768508954103, pearson: [0.8374592], spearman: 0.9978893187279659
+test  Epoch: 23/50, Iteration: 108/108, loss: 23311.458984375, quadratic_weighted_kappa: 0.6498225397432824, pearson: 0.9907596936543251, spearman: [0.8264891]
+begin train
+loss: tensor(0.0061, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 24/50, Iteration: 108/108, loss : 23548.54296875, quadratic_weighted_kappa: 0.6766520427748834, pearson: [0.82248586], spearman: 0.9973181122425232
+test  Epoch: 24/50, Iteration: 108/108, loss: 23141.36328125, quadratic_weighted_kappa: 0.7098063326160469, pearson: 0.9936718792596957, spearman: [0.82644033]
+begin train
+loss: tensor(0.0048, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 25/50, Iteration: 108/108, loss : 23062.9921875, quadratic_weighted_kappa: 0.7613225214087016, pearson: [0.819995], spearman: 0.9987206783330519
+test  Epoch: 25/50, Iteration: 108/108, loss: 22667.634765625, quadratic_weighted_kappa: 0.7733223710667656, pearson: 0.9954974393618818, spearman: [0.82688516]
+begin train
+loss: tensor(0.0049, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 26/50, Iteration: 108/108, loss : 23604.943359375, quadratic_weighted_kappa: 0.6662567070597457, pearson: [0.815251], spearman: 0.9968394305023798
+test  Epoch: 26/50, Iteration: 108/108, loss: 23200.98828125, quadratic_weighted_kappa: 0.6919805662188101, pearson: 0.9983102514625094, spearman: [0.8142775]
+begin train
+loss: tensor(0.0004, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 27/50, Iteration: 108/108, loss : 23248.771484375, quadratic_weighted_kappa: 0.7823440465353105, pearson: [0.81426424], spearman: 0.9942188823622502
+test  Epoch: 27/50, Iteration: 108/108, loss: 22844.69921875, quadratic_weighted_kappa: 0.8082811568276684, pearson: 0.9982375083282244, spearman: [0.82735556]
+begin train
+loss: tensor(0.0138, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 28/50, Iteration: 108/108, loss : 23749.87890625, quadratic_weighted_kappa: 0.5734275021127611, pearson: [0.8007743], spearman: 0.996419295681558
+test  Epoch: 28/50, Iteration: 108/108, loss: 23338.533203125, quadratic_weighted_kappa: 0.5942691448632828, pearson: 0.997899359142296, spearman: [0.8018221]
+begin train
+loss: tensor(0.0006, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 29/50, Iteration: 108/108, loss : 23168.66796875, quadratic_weighted_kappa: 0.797507559522062, pearson: [0.81047434], spearman: 0.9983297671022833
+test  Epoch: 29/50, Iteration: 108/108, loss: 22755.5390625, quadratic_weighted_kappa: 0.8134256093793928, pearson: 0.9971300040826585, spearman: [0.8167422]
+begin train
+loss: tensor(0.0006, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 30/50, Iteration: 108/108, loss : 23277.869140625, quadratic_weighted_kappa: 0.7626814701617054, pearson: [0.8039413], spearman: 0.9952263149285667
+test  Epoch: 30/50, Iteration: 108/108, loss: 22870.009765625, quadratic_weighted_kappa: 0.8044861064613325, pearson: 0.9961821158278156, spearman: [0.8264945]
+begin train
+loss: tensor(0.0033, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 31/50, Iteration: 108/108, loss : 23671.119140625, quadratic_weighted_kappa: 0.6333752789781091, pearson: [0.827717], spearman: 0.9972056064077791
+test  Epoch: 31/50, Iteration: 108/108, loss: 23270.361328125, quadratic_weighted_kappa: 0.6444754541153362, pearson: 0.9942670564031911, spearman: [0.81117886]
+begin train
+loss: tensor(0.0060, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 32/50, Iteration: 108/108, loss : 23008.451171875, quadratic_weighted_kappa: 0.7695120093434216, pearson: [0.8031981], spearman: 0.9966866300246954
+test  Epoch: 32/50, Iteration: 108/108, loss: 22589.37890625, quadratic_weighted_kappa: 0.7815223800374639, pearson: 0.9967306815114082, spearman: [0.81145245]
+begin train
+loss: tensor(0.0029, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 33/50, Iteration: 108/108, loss : 23768.59375, quadratic_weighted_kappa: 0.5631436615544194, pearson: [0.807072], spearman: 0.9974817510482592
+test  Epoch: 33/50, Iteration: 108/108, loss: 23358.052734375, quadratic_weighted_kappa: 0.58942910655468, pearson: 0.993893965245538, spearman: [0.8055824]
+begin train
+loss: tensor(0.0104, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 34/50, Iteration: 108/108, loss : 23926.396484375, quadratic_weighted_kappa: 0.5100803847338559, pearson: [0.7997025], spearman: 0.9954837750893996
+test  Epoch: 34/50, Iteration: 108/108, loss: 23535.9765625, quadratic_weighted_kappa: 0.544737834405017, pearson: 0.9942145603295915, spearman: [0.81671137]
+begin train
+loss: tensor(0.0087, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 35/50, Iteration: 108/108, loss : 22883.953125, quadratic_weighted_kappa: 0.7762382906732667, pearson: [0.8178349], spearman: 0.996893755128258
+test  Epoch: 35/50, Iteration: 108/108, loss: 22486.8203125, quadratic_weighted_kappa: 0.788951173702111, pearson: 0.9972718997394812, spearman: [0.83058053]
+begin train
+loss: tensor(0.0024, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 36/50, Iteration: 108/108, loss : 23162.240234375, quadratic_weighted_kappa: 0.7783459795115311, pearson: [0.80912715], spearman: 0.9987562852328777
+begin train
+loss: tensor(0.0011, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 37/50, Iteration: 108/108, loss : 23646.984375, quadratic_weighted_kappa: 0.590750593890224, pearson: [0.80520284], spearman: 0.9975968833490034
+begin train
+dev  Epoch: 38/50, Iteration: 108/108, loss : 23094.298828125, quadratic_weighted_kappa: 0.7817874162580288, pearson: [0.81941843], spearman: 0.9978563050477351
+test  Epoch: 38/50, Iteration: 108/108, loss: 22699.18359375, quadratic_weighted_kappa: 0.7820217724297804, pearson: 0.9949641005318095, spearman: [0.80386984]
+begin train
+loss: tensor(0.0016, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 39/50, Iteration: 108/108, loss : 23516.970703125, quadratic_weighted_kappa: 0.6607053489946717, pearson: [0.7995349], spearman: 0.9976168311920433
+test  Epoch: 39/50, Iteration: 108/108, loss: 23102.3359375, quadratic_weighted_kappa: 0.6896432232107357, pearson: 0.9928720372466125, spearman: [0.80089295]
+begin train
+loss: tensor(0.0028, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 40/50, Iteration: 108/108, loss : 22967.326171875, quadratic_weighted_kappa: 0.7808556478916591, pearson: [0.80927557], spearman: 0.9939228231251355
+test  Epoch: 40/50, Iteration: 108/108, loss: 22562.416015625, quadratic_weighted_kappa: 0.7813769829426754, pearson: 0.9965962995421305, spearman: [0.80809724]
+begin train
+loss: tensor(0.0022, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 41/50, Iteration: 108/108, loss : 23053.103515625, quadratic_weighted_kappa: 0.792191495782836, pearson: [0.8082211], spearman: 0.9946722635881382
+test  Epoch: 41/50, Iteration: 108/108, loss: 22651.267578125, quadratic_weighted_kappa: 0.7958738697277539, pearson: 0.9943183223598032, spearman: [0.80571204]
+begin train
+loss: tensor(0.0004, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 42/50, Iteration: 108/108, loss : 23205.3359375, quadratic_weighted_kappa: 0.7954170883330924, pearson: [0.81278545], spearman: 0.998052558576841
+test  Epoch: 42/50, Iteration: 108/108, loss: 22808.998046875, quadratic_weighted_kappa: 0.8137100994243851, pearson: 0.9957402378580804, spearman: [0.821659]
+begin train
+loss: tensor(2.1893e-09, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 43/50, Iteration: 108/108, loss : 23354.083984375, quadratic_weighted_kappa: 0.7386649399930733, pearson: [0.7968233], spearman: 0.9950871122305545
+test  Epoch: 43/50, Iteration: 108/108, loss: 22945.408203125, quadratic_weighted_kappa: 0.7851135119114315, pearson: 0.9948566813970405, spearman: [0.8203304]
+begin train
+loss: tensor(0.0080, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 44/50, Iteration: 108/108, loss : 23928.23828125, quadratic_weighted_kappa: 0.48418047938560216, pearson: [0.78903735], spearman: 0.9958195970269734
+test  Epoch: 44/50, Iteration: 108/108, loss: 23513.416015625, quadratic_weighted_kappa: 0.5305022438524314, pearson: 0.995821857782518, spearman: [0.81303316]
+begin train
+loss: tensor(0.0002, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 45/50, Iteration: 108/108, loss : 23395.3671875, quadratic_weighted_kappa: 0.7353619929583717, pearson: [0.8106631], spearman: 0.9977197288157231
+test  Epoch: 45/50, Iteration: 108/108, loss: 22990.1328125, quadratic_weighted_kappa: 0.7728481868116068, pearson: 0.9993439154424232, spearman: [0.82367295]
+begin train
+loss: tensor(0.0029, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 46/50, Iteration: 108/108, loss : 23878.2265625, quadratic_weighted_kappa: 0.5227575944170775, pearson: [0.79266626], spearman: 0.992418423295889
+test  Epoch: 46/50, Iteration: 108/108, loss: 23462.97265625, quadratic_weighted_kappa: 0.5524868779483092, pearson: 0.9884852073445298, spearman: [0.79185736]
+begin train
+loss: tensor(0.0066, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 47/50, Iteration: 108/108, loss : 23744.640625, quadratic_weighted_kappa: 0.56258002767826, pearson: [0.8112256], spearman: 0.9936040233469555
+test  Epoch: 47/50, Iteration: 108/108, loss: 23335.4296875, quadratic_weighted_kappa: 0.5891784754780591, pearson: 0.9961188146725695, spearman: [0.80733585]
+begin train
+loss: tensor(0.0070, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 48/50, Iteration: 108/108, loss : 23574.373046875, quadratic_weighted_kappa: 0.6560791705937795, pearson: [0.8052228], spearman: 0.9956540964225539
+test  Epoch: 48/50, Iteration: 108/108, loss: 23163.103515625, quadratic_weighted_kappa: 0.6846105425127644, pearson: 0.9893802670617227, spearman: [0.8046509]
+begin train
+loss: tensor(3.3266e-06, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 49/50, Iteration: 108/108, loss : 23291.724609375, quadratic_weighted_kappa: 0.7670533915626333, pearson: [0.8064958], spearman: 0.998194587219284
+test  Epoch: 49/50, Iteration: 108/108, loss: 22880.103515625, quadratic_weighted_kappa: 0.7989764861726194, pearson: 0.9953031473706748, spearman: [0.8220124]
+begin train
+loss: tensor(0.0009, device='cuda:0', grad_fn=<MseLossBackward0>)
+dev  Epoch: 50/50, Iteration: 108/108, loss : 23054.01171875, quadratic_weighted_kappa: 0.8019306200795617, pearson: [0.8027737], spearman: 0.9993115999366988
+test  Epoch: 50/50, Iteration: 108/108, loss: 22633.0078125, quadratic_weighted_kappa: 0.8011961377720133, pearson: 0.9936927247556722, spearman: [0.8034925]
+best result Epoch : 50,quadratic_weighted_kappa: 0.8152572123613426, pearson: [0.8281996], spearman: 0.9965468621377971
+mean qwk is  0.8043276888230784
